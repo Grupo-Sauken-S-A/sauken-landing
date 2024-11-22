@@ -17,7 +17,7 @@ export const Header = () => {
 
          </div>
          <div className="actions sm:order-2 lg:order-3 sm:max-lg:ml-auto sm:max-lg:mr-8">
-            <Link href="https://app.sauken.com.ar/cgi-bin/wspd_cgi.sh/WService=Sauken/app/login.html?app=brm" target="_blank">
+            <Link href="https://app.sauken.com.ar/" target="_blank">
                <Boton variant="secondary">Ingresar</Boton>
             </Link>
          </div>
