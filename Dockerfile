@@ -14,7 +14,6 @@ RUN npm install
 COPY . .
 
 # Set the environment variable to run the Next.js application in production mode
-ENV NODE_ENV development
 ENV PORT 4002
 
 # Build the Next.js application for production
