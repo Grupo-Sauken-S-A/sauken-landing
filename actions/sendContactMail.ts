@@ -26,7 +26,7 @@ export async function sendContactMail(values: z.infer<typeof ContactSchema>) {
   const data = {
     personalizations: [
       {
-        to: [{ email: 'federico.schafer@gmail.com' }],
+        to: [{ email: 'info@sauken.com.ar' }],
         subject: 'Consulta desde web Sauken',
       },
     ],
