@@ -34,7 +34,7 @@ const LandingPage = () => {
             <div className="w-full md:flex gap-x-8 items-stretch">
               <div className="basis-[63%]"><p className="text-c2 text-xl font-[400]">Se trata de una opción confiable y segura que utiliza algoritmos de criptografía de última generación para garantizar la integridad y autenticidad.</p></div>
               <div className="basis-[37%] bg-[url(/images/landing/bottom-bg.svg)] bg-no-repeat bg-left-bottom bg-[size:100%_auto] text-right pr-[3rem] mt-8 md:mt-0 pb-8 lg:pb-0">
-                <Link href="https://sauken.com.ar/sauken/tmp/6360_dscod_122_2023.zip" passHref target="_blank"><Boton variant="secondary">Descargar aquí</Boton></Link>
+                <Link href="https://app.sauken.com.ar/sauken/tmp/6360_dscod_122_2023.zip" passHref target="_blank"><Boton variant="secondary">Descargar aquí</Boton></Link>
               </div>
             </div>
           </InnerContainer>
