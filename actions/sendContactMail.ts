@@ -36,6 +36,8 @@ function rateLimited(ip: string) {
 
 function createTransport() {
   const host = process.env.SMTP_HOST ?? 'sauken.com.ar'
+  // Si se conecta por IP/localhost (Postfix en el mismo equipo), el certificado se verifica contra este nombre
+  const servername = process.env.SMTP_TLS_SERVERNAME ?? 'sauken.com.ar'
   const port = Number(process.env.SMTP_PORT ?? 587)
   const user = process.env.SMTP_USER
   const pass = process.env.SMTP_PASS
@@ -51,6 +53,7 @@ function createTransport() {
     secure: port === 465,
     requireTLS: port !== 465,
     auth: { user, pass },
+    tls: { servername },
   })
 }
 
@@ -69,31 +72,40 @@ export async function sendContactMail(values: z.infer<typeof ContactSchema>) {
     return { error: "Demasiados envíos. Intentá nuevamente en unos minutos." }
   }
 
-  const { name, email, phone, company, message } = result.data
+  const { name, email, phone, company, subject, message } = result.data
+
+  // El remitente debe ser una dirección existente y autorizada para la cuenta SMTP (sender_login de Postfix)
+  const fromAddress = process.env.MAIL_FROM
+  if (!fromAddress) {
+    console.error('MAIL_FROM no configurado')
+    return { error: "No pudimos enviar tu consulta. Intentá nuevamente." }
+  }
 
   const text = [
     `Nombre: ${name}`,
     `Email: ${email}`,
     `Teléfono: ${phone}`,
     `Empresa: ${company}`,
+    `Asunto: ${subject}`,
     `Mensaje: ${message}`,
   ].join('\n')
 
   const html = `
-    <h1>Consulta desde web Sauken</h1>
+    <h1>Consulta desde el portal de Sauken</h1>
     <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
     <p><strong>Teléfono:</strong> ${escapeHtml(phone)}</p>
     <p><strong>Empresa:</strong> ${escapeHtml(company)}</p>
+    <p><strong>Asunto:</strong> ${escapeHtml(subject)}</p>
     <p><strong>Mensaje:</strong> ${escapeHtml(message).replace(/\n/g, '<br>')}</p>
   `
 
   try {
     await createTransport().sendMail({
-      from: { name: singleLine(name), address: process.env.MAIL_FROM ?? 'web@sauken.com.ar' },
-      to: process.env.MAIL_TO ?? 'info@sauken.com.ar',
+      from: { name: singleLine(name), address: fromAddress },
+      to: 'info@sauken.com.ar',
       replyTo: email,
-      subject: 'Consulta desde web Sauken',
+      subject: `[Portal] ${singleLine(subject)}`,
       text,
       html,
     })

@@ -26,6 +26,7 @@ export default function ContactForm() {
          email: "",
          phone: "",
          company: "",
+         subject: "",
          message: "",
          website: "",
       }
@@ -110,6 +111,21 @@ export default function ContactForm() {
                </div>
 
 
+               <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                     <FormItem className="flex gap-x-6">
+                        <FormLabel>Asunto:</FormLabel>
+                        <div className="flex-grow">
+                           <FormControl>
+                              <Input {...field} />
+                           </FormControl>
+                           <FormMessage />
+                        </div>
+                     </FormItem>
+                  )}
+               />
                <FormField
                   control={form.control}
                   name="message"
