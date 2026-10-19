@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
-import plugin from 'tailwindcss/plugin';
+import animate from "tailwindcss-animate";
 
 const config: Config = {
-    darkMode: ["class"],
+    darkMode: "class",
     content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -88,17 +88,8 @@ const config: Config = {
   	}
   },
   plugins: [
-	require("tailwindcss-animate"),
-	plugin(function ({ addComponents }) {
-      addComponents({
-        '.text-sm strong, .text-sm b': { fontWeight: '500' },  
-        '.text-base strong, .text-base b': { fontWeight: '500' }, 
-        '.text-lg strong, .text-lg b': { fontWeight: '500' }, 
-        '.text-xl strong, .text-xl b': { fontWeight: '500' }, 
-        // Agrega más tamaños según necesites
-      });
-    }),
-
+	animate,
+	
 	],
 };
 export default config;

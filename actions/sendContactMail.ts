@@ -1,11 +1,40 @@
 'use server'
 
-import { ContactSchema } from "@/schemas"
+import nodemailer from "nodemailer"
 import { redirect } from "next/navigation"
 import { z } from "zod"
+import { ContactSchema } from "@/schemas"
 
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
-const SENDGRID_API = 'https://api.sendgrid.com/v3/mail/send'
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+
+// Cabeceras: sin saltos de línea para evitar inyección de headers
+const singleLine = (value: string) => value.replace(/[\r\n]+/g, ' ').trim()
+
+function createTransport() {
+  const host = process.env.SMTP_HOST
+  const port = Number(process.env.SMTP_PORT ?? 465)
+  const user = process.env.SMTP_USER
+  const pass = process.env.SMTP_PASS
+
+  if (!host || !user || !pass) {
+    throw new Error('SMTP no configurado (SMTP_HOST, SMTP_USER, SMTP_PASS)')
+  }
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    // 465 = TLS implícito; 587 = STARTTLS (obligatorio)
+    secure: port === 465,
+    requireTLS: port !== 465,
+    auth: { user, pass },
+  })
+}
 
 export async function sendContactMail(values: z.infer<typeof ContactSchema>) {
   const result = ContactSchema.safeParse(values)
@@ -15,52 +44,36 @@ export async function sendContactMail(values: z.infer<typeof ContactSchema>) {
 
   const { name, email, phone, company, message } = result.data
 
-  const content = `
-    Nombre: ${name}
-    Email: ${email}
-    Teléfono: ${phone}
-    Empresa: ${company}
-    Mensaje: ${message}
-  `.trim()
+  const text = [
+    `Nombre: ${name}`,
+    `Email: ${email}`,
+    `Teléfono: ${phone}`,
+    `Empresa: ${company}`,
+    `Mensaje: ${message}`,
+  ].join('\n')
 
-  const data = {
-    personalizations: [
-      {
-        to: [{ email: 'info@sauken.com.ar' }],
-        subject: 'Consulta desde web Sauken',
-      },
-    ],
-    from: { email: 'web@sauken.com.ar', name: name },
-    reply_to: { email: email },
-    content: [
-      {
-        type: 'text/plain',
-        value: content,
-      },
-      {
-        type: 'text/html',
-        value: `
-          <h1>Consulta desde web Sauken</h1>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Teléfono:</strong> ${phone}</p>
-          <p><strong>Empresa:</strong> ${company}</p>
-          <p><strong>Mensaje:</strong> ${message}</p>
-        `,
-      },
-    ],
-  }
-  
-    const response = await fetch(SENDGRID_API, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${SENDGRID_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+  const html = `
+    <h1>Consulta desde web Sauken</h1>
+    <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Teléfono:</strong> ${escapeHtml(phone)}</p>
+    <p><strong>Empresa:</strong> ${escapeHtml(company)}</p>
+    <p><strong>Mensaje:</strong> ${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+  `
+
+  try {
+    await createTransport().sendMail({
+      from: { name: singleLine(name), address: process.env.MAIL_FROM ?? 'web@sauken.com.ar' },
+      to: process.env.MAIL_TO ?? 'info@sauken.com.ar',
+      replyTo: email,
+      subject: 'Consulta desde web Sauken',
+      text,
+      html,
     })
-    if (!response.ok) {
-      throw new Error('Failed to send email')
-    }
-    redirect('/gracias');
+  } catch (err) {
+    console.error('Error enviando mail de contacto', err)
+    return { error: "No pudimos enviar tu consulta. Intentá nuevamente." }
   }
+
+  redirect('/gracias')
+}

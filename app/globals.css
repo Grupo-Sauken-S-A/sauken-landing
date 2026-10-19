@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @layer base {
   html {
@@ -187,4 +186,13 @@ body {
 
 .slide-logo{
   @apply max-h-[50px] w-auto lg:max-h-[98px] lg:w-auto mt-4 sm:mt-6 lg:mt-8 xl:mt-12;
+}
+
+@layer components {
+  .text-sm strong, .text-sm b,
+  .text-base strong, .text-base b,
+  .text-lg strong, .text-lg b,
+  .text-xl strong, .text-xl b {
+    font-weight: 500;
+  }
 }

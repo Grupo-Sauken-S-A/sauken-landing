@@ -1,26 +1,26 @@
-# Dockerfile
-FROM node:18-alpine
-
-# Set the working directory
+# syntax=docker/dockerfile:1
+FROM node:22-alpine AS deps
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+RUN npm ci
 
-# Install dependencies
-RUN npm install
-
-# Copy the entire project to the working directory
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Set the environment variable to run the Next.js application in production mode
-ENV PORT 4002
-
-# Build the Next.js application for production
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# Expose the port that the application will run on
+FROM node:22-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production \
+    NEXT_TELEMETRY_DISABLED=1 \
+    PORT=4002 \
+    HOSTNAME=0.0.0.0
+RUN addgroup -S nodejs && adduser -S nextjs -G nodejs
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+USER nextjs
 EXPOSE 4002
-
-# Start the application
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]

@@ -1,7 +1,7 @@
 "use client"
 
 import { MENU_ITEMS } from "@/constants"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { LuMenu, LuX } from "react-icons/lu"

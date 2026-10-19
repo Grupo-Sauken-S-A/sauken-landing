@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';

@@ -33,8 +33,9 @@ export default function ContactForm() {
    const onSubmit = async (values: z.infer<typeof ContactSchema>) => {
       setSuccess("")
       setError("")
-      startTransition(() => {
-         sendContactMail(values);
+      startTransition(async () => {
+         const res = await sendContactMail(values)
+         if (res?.error) setError(res.error)
       })
    }
    return (
