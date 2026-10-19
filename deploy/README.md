@@ -22,7 +22,7 @@ Requiere autorización de jrios y ventana acordada antes de tocar producción.
 
     tar -xzf sauken-portal.tar.gz -C /srv/sauken-portal
     # portal.env es root:root 600: se lee como root y el proceso corre como sauken-portal
-    sudo bash -c 'set -a; . /etc/sauken-portal/portal.env; set +a; PORT=4012 exec runuser -u sauken-portal -- node /srv/sauken-portal/server.js'
+    sudo bash -c 'set -a; . /etc/sauken-portal/portal.env; set +a; HOSTNAME=127.0.0.1 PORT=4012 exec runuser -u sauken-portal -- node /srv/sauken-portal/server.js'
     curl -I http://127.0.0.1:4012/
 
 ## 4. Corte (segundos)

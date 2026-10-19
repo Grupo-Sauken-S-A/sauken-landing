@@ -9,7 +9,7 @@ npm run build
 
 rm -rf release && mkdir release
 cp -r .next/standalone/. release/
-mkdir -p release/.next
+mkdir -p release/.next/cache
 cp -r .next/static release/.next/static
 cp -r public release/public
 
