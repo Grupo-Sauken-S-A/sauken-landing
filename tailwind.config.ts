@@ -17,6 +17,9 @@ const config: Config = {
 		},
 	  },
   	extend: {
+		fontFamily: {
+			dm: ['var(--font-dm-sans)', 'Helvetica', 'sans-serif'],
+		},
 		fontSize: {
 			'xs': ['0.81rem', { lineHeight: '1.2'}],
 			'sm': ['0.93rem', { lineHeight: '1.2'}],

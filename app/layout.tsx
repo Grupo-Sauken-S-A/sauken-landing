@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const clash = localFont({
   src: "./fonts/ClashDisplay-Variable.woff2",
   variable: "--font-clash",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${clash.variable} font-clash`}>
+      <body className={`${clash.variable} ${dmSans.variable} font-clash`}>
         <div className="overflow-x-clip">
         {children}
         </div>

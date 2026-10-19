@@ -27,7 +27,7 @@ export const Hero = () => {
             </div>
             <div className="flex justify-between lg:justify-end items-center lg:gap-x-20">
                <SocialIcons className="text-c2" />
-               <div className="text-xs text-c2 text-right sm:text-left"><b className="uppercase">2024 Sauken </b>&nbsp;<span className="block sm:inline-block"> &copy; All Rights Reserved</span></div>
+               <div className="text-xs text-c2 text-right sm:text-left"><b className="uppercase">{new Date().getFullYear()} Sauken </b>&nbsp;<span className="block sm:inline-block"> &copy; All Rights Reserved</span></div>
             </div>
             
             <div className="absolute bottom-0 left-0 -rotate-90 origin-bottom-left"><a href="mailto:info@sauken.com.ar" className="text-c2 afterline block relative z-10 pr-[115px]">info@sauken.com.ar</a></div>

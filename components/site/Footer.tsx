@@ -43,7 +43,7 @@ export const Footer = () => {
                   })}
                 </div>
               </div>
-              <div className="text-xs pt-12"><b className="uppercase">2024 Sauken</b> &copy; All Rights Reserved</div>
+              <div className="text-xs pt-12"><b className="uppercase">{new Date().getFullYear()} Sauken</b> &copy; All Rights Reserved</div>
             </div>
           </div>
         </InnerContainer>

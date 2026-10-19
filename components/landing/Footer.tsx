@@ -26,7 +26,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className="flex col-span-6 md:col-span-3 lg:col-span-2  flex-col justify-end h-full lg:order-3">
-              <div className="text-xs pt-12"><b className="uppercase">2024 Sauken</b> &copy; All Rights Reserved</div>
+              <div className="text-xs pt-12"><b className="uppercase">{new Date().getFullYear()} Sauken</b> &copy; All Rights Reserved</div>
             </div>
           </div>
         </InnerContainer>
