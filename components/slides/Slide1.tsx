@@ -1,6 +1,7 @@
 import { InnerContainer } from "@/components/site/InnerContainer"
 import { H3, H4 } from "@/components/Typography"
 import Image from "next/image"
+import Link from "next/link"
 import { Boton } from "../Boton"
 
 export const Slide1 = () => {
@@ -19,9 +20,9 @@ export const Slide1 = () => {
 
                      <div className="sm:flex items-center mt-8">
                         <p className="text-lg font-semibold">Conoce más e ingresa a los portales habilitados</p>
-                        <a href="">
+                        <Link href="/landing">
                            <Boton className="mt-4 sm:ml-6 sm:mt-0" variant="secondary">Ingresar</Boton>
-                        </a>
+                        </Link>
                      </div>
                </div>
 

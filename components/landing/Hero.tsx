@@ -37,7 +37,7 @@ export const Hero = () => {
                <div className="flex items-center justify-end w-full">
                <div className="text-xs text-c2 text-right sm:text-left"><b className="uppercase">{new Date().getFullYear()} Sauken </b>&nbsp;<span className="block sm:inline-block"> &copy; All Rights Reserved</span></div>
                </div>
-               <Link href="" className="absolute bottom-[5px] left-[50%] -translate-x-1/2">
+               <Link href="#entidades" aria-label="Ver entidades habilitadas" className="absolute bottom-[5px] left-[50%] -translate-x-1/2">
                   <Image src="/images/landing/chevron-down.svg" alt="" width={77} height={39} />
                </Link>
             </div>

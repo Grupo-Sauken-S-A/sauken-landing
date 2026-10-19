@@ -13,7 +13,7 @@ const LandingPage = () => {
     <div>
       <Header />
       <Hero />
-      <section>
+      <section id="entidades" className="scroll-mt-8">
         <div className="container">
           <InnerContainer symetric={true}>
             <H2 className="mb-7">Entidades</H2>

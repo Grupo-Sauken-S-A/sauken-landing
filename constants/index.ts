@@ -1,8 +1,8 @@
 export const MENU_ITEMS = [
    { title: "Soluciones", url: "/#soluciones"},
-   { title: "Servicios", url: "#servicios"},
-   { title: "Nosotros",  url: "#nosotros"},
-   { title: "Contacto", url: "#contacto"}, 
+   { title: "Servicios", url: "/#servicios"},
+   { title: "Nosotros",  url: "/#nosotros"},
+   { title: "Contacto", url: "/#contacto"}, 
 ]
 
 export const CLIENTES = [
