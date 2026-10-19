@@ -14,7 +14,7 @@ export const Slide3 = () => {
                      <div className="space-y-6 mt-12">
                         
                      <p>Fortalecer las relaciones comerciales es la clave del éxito empresarial.S-BRM te permite centralizarlas y optimizarlas, administrando tus contactosde forma eficiente y facilitando la búsqueda de nuevos clientes y proveedores.</p>
-                     <p>Genera nuevas oportunidades de manera estratégica con nuestra plataforma.</p>
+                     <p>Genera nuevas oportunidades de manera estratégica con nuestra plataforma, que ya reúne a más de 12.000 personas y 7.900 empresas y entidades registradas, y más de 330 reuniones de negocios organizadas.</p>
                      </div>
                   </div>
                   </InnerContainer>

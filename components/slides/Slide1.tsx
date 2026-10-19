@@ -14,8 +14,8 @@ export const Slide1 = () => {
                   <H3 className=" pr-24">Gestión de Certificados de Origen de Comercio Exterior.</H3>
                   <H4 className="mt-7">Tu aliado para la gestión de Certificados de Origen y Firma Digital.</H4>
                   <div className="space-y-6 mt-12">
-                     <p>Con más de 15 entidades y cámaras exportadoras utilizando nuestro sistema,S-COD se ha convertido en la solución líder para la generación y validaciónde Certificados de Origen, tanto en formato impreso como en versión digital.</p>
-                     <p>Te permite simplificar y agilizar tus procesos de exportación,mejorando la eficiencia y seguridad.</p>
+                     <p>Con 20 entidades y cámaras exportadoras utilizando nuestro sistema,S-COD se ha convertido en la solución líder para la generación y validaciónde Certificados de Origen, tanto en formato impreso como en versión digital.</p>
+                     <p>Te permite simplificar y agilizar tus procesos de exportación, mejorando la eficiencia y seguridad. Incluye soporte del nuevo Régimen de Origen MERCOSUR, visualizadores de COD y DJO, e integración por CSV y webservices.</p>
                   </div>
 
                      <div className="sm:flex items-center mt-8">

@@ -8,6 +8,8 @@ import { InnerContainer } from "@/components/site/InnerContainer";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Slider } from "@/components/Slider";
 import { getSfideVersion } from "@/lib/sfide";
+import { Accesos } from "@/components/site/Accesos";
+import { Cloud, Code, FileSignature, MonitorSmartphone, ShieldCheck } from "lucide-react";
 import { Stack } from "@/components/Stack";
 import { CLIENTES } from "@/constants";
 import Image from "next/image";
@@ -25,6 +27,11 @@ export default async function Home() {
       <Hero />
       <SectionHeading title="Soluciones" id="soluciones"/>
       <Slider sfideVersion={sfideVersion} />
+
+      <SectionHeading title="Accesos" id="accesos">
+        <p className="text-lead text-c2 max-w-4xl mb-12">Ingresá a las plataformas y servicios de Sauken desde un solo lugar.</p>
+        <Accesos />
+      </SectionHeading>
 
       <SectionHeading title="Servicios" id="servicios" />
 
@@ -62,10 +69,45 @@ export default async function Home() {
             </ServicioCard>
 
             <ServicioCard title="Datacenter"
-              image={<Image src="/images/icon-am.svg" alt="Datacenter" width={70} height={61} />}
+              image={<Image src="/images/icon-d.svg" alt="Datacenter" width={70} height={61} />}
             >
               <p>En nuestro centro de procesamiento de datos, podrás alojar servidores dedicados y virtualizados tanto para nuestras aplicaciones como para las de terceros.</p>
               <p>Nuestra infraestructura se caracteriza por la redundancia en los sistemas de procesamiento, almacenamiento, conectividad y energía, garantizando la disponibilidad constante de los servicios.</p>
+            </ServicioCard>
+
+            <ServicioCard title="Firma Digital y Comercio Exterior"
+              image={<FileSignature size={56} strokeWidth={1.4} className="text-c2" aria-hidden="true" />}
+            >
+              <p>Plataformas de Certificados de Origen Digital (COD) y Declaraciones Juradas de Origen (DJO) para ALADI y MERCOSUR, con soporte del nuevo Régimen de Origen MERCOSUR e integración por archivos CSV y webservices SOAP.</p>
+              <p>Con S-FiDE firmás y verificás documentos XML y PDF, y con los visualizadores de COD y DJO cualquier sistema puede mostrar sus documentos.</p>
+            </ServicioCard>
+
+            <ServicioCard title="Correo y Nube corporativa"
+              image={<Cloud size={56} strokeWidth={1.4} className="text-c2" aria-hidden="true" />}
+            >
+              <p>Correo electrónico propio, con autenticación SPF, DKIM y DMARC, y un espacio de trabajo en la nube para archivos, calendario y colaboración.</p>
+              <p>Todo se aloja en la infraestructura de Sauken, bajo tu control y sin depender de terceros.</p>
+            </ServicioCard>
+
+            <ServicioCard title="Acceso remoto seguro"
+              image={<MonitorSmartphone size={56} strokeWidth={1.4} className="text-c2" aria-hidden="true" />}
+            >
+              <p>Escritorios remotos desde el navegador de cualquier computadora o celular, con tus aplicaciones y tus archivos, como si estuvieras frente al equipo.</p>
+              <p>El acceso no se expone a Internet: se ingresa por VPN, con cuentas individuales y registro de accesos.</p>
+            </ServicioCard>
+
+            <ServicioCard title="Infraestructura gestionada y seguridad"
+              image={<ShieldCheck size={56} strokeWidth={1.4} className="text-c2" aria-hidden="true" />}
+            >
+              <p>Operamos y vigilamos la plataforma donde corren las aplicaciones de nuestros clientes: doble salida a Internet con equipos de respaldo y cada aplicación crítica en su propio entorno aislado.</p>
+              <p>Los cambios disruptivos se hacen solo en ventanas acordadas, fuera del horario de trabajo y con aviso previo.</p>
+            </ServicioCard>
+
+            <ServicioCard title="Software libre"
+              image={<Code size={56} strokeWidth={1.4} className="text-c2" aria-hidden="true" />}
+            >
+              <p>Publicamos herramientas bajo licencia GPL, abiertas y auditables, como S-FiDE, COD-Viewer y DJO-Viewer.</p>
+              <p>Podés usarlas, estudiarlas, adaptarlas e integrarlas a tus propios sistemas.</p>
             </ServicioCard>
           </div>
         </InnerContainer>

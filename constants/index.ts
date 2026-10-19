@@ -1,5 +1,6 @@
 export const MENU_ITEMS = [
    { title: "Soluciones", url: "/#soluciones"},
+   { title: "Accesos", url: "/#accesos"},
    { title: "Servicios", url: "/#servicios"},
    { title: "Nosotros",  url: "/#nosotros"},
    { title: "Contacto", url: "/#contacto"}, 
