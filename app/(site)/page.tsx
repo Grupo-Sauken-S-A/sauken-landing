@@ -9,6 +9,8 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { Slider } from "@/components/Slider";
 import { getSfideVersion } from "@/lib/sfide";
 import { Accesos } from "@/components/site/Accesos";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ORGANIZATION, SITE_NAME, SITE_URL } from "@/constants/site";
 import { Stack } from "@/components/Stack";
 import { CLIENTES } from "@/constants";
 import Image from "next/image";
@@ -23,6 +25,13 @@ export default async function Home() {
 
   return (
     <main>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          { "@type": "Organization", "@id": `${SITE_URL}/#organization`, ...ORGANIZATION },
+          { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "es-AR", publisher: { "@id": `${SITE_URL}/#organization` } },
+        ],
+      }} />
       <Hero />
       <SectionHeading title="Soluciones" id="soluciones"/>
       <Slider sfideVersion={sfideVersion} />

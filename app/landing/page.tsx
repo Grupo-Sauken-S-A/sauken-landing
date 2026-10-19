@@ -7,12 +7,20 @@ import { Hero } from "@/components/landing/Hero"
 import { InnerContainer } from "@/components/site/InnerContainer"
 import { H2, H3 } from "@/components/Typography"
 import Image from "next/image"
+import { JsonLd } from "@/components/seo/JsonLd"
+import { ORGANIZATION, SITE_NAME, SITE_URL } from "@/constants/site"
 import { getSfideVersion } from "@/lib/sfide"
 import { SFIDE_DOC_TECNICO_URL, SFIDE_DOC_USUARIO_URL, SFIDE_NOVEDADES, SFIDE_PAGES_URL, SFIDE_RELEASES_URL, SFIDE_REPO_URL } from "@/constants/sfide"
 
+const LANDING_TITLE = "S-COD y S-FiDE: Certificados de Origen y Firma Digital"
+const LANDING_DESCRIPTION = "S-COD: plataforma de Certificados de Origen Digital con las entidades habilitadas. S-FiDE: firma digital libre de documentos XML y PDF."
+
 export const metadata: Metadata = {
-  title: "S-COD y S-FiDE | Certificados de Origen y Firma Digital | Sauken",
-  description: "S-COD, plataforma de Certificados de Origen Digital, y S-FiDE, suite libre de firma digital de documentos XML y PDF. Entidades habilitadas y descargas.",
+  title: LANDING_TITLE,
+  description: LANDING_DESCRIPTION,
+  alternates: { canonical: "/landing" },
+  openGraph: { type: "website", siteName: SITE_NAME, locale: "es_AR", url: "/landing", title: LANDING_TITLE, description: LANDING_DESCRIPTION, images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Sauken" }] },
+  twitter: { card: "summary_large_image", title: LANDING_TITLE, description: LANDING_DESCRIPTION, images: ["/og-image.png"] },
 }
 
 // Revalida la versión de S-FiDE (GitHub) cada 3 horas
@@ -81,7 +89,37 @@ const LandingPage = async () => {
 
   return (
     <div>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            name: "S-COD",
+            alternateName: "Gestión de Certificados de Origen de Comercio Exterior",
+            description: "Plataforma de Certificados de Origen Digital (COD) homologada por la Dirección de Origen de Mercadería, AFIP, Aduana Argentina y ALADI.",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            url: `${SITE_URL}/landing`,
+            publisher: { "@type": "Organization", name: ORGANIZATION.name, url: SITE_URL },
+          },
+          {
+            "@type": "SoftwareApplication",
+            name: "S-FiDE",
+            alternateName: "Sistema de Firma Digital Extendido",
+            description: "Suite de software libre para firmar y verificar documentos XML y PDF con token criptográfico, certificado PKCS#12 o almacén de Windows.",
+            applicationCategory: "SecurityApplication",
+            operatingSystem: "Windows, Linux, macOS",
+            ...(version ? { softwareVersion: version } : {}),
+            license: "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+            downloadUrl: SFIDE_RELEASES_URL,
+            url: `${SITE_URL}/landing#s-fide`,
+            offers: { "@type": "Offer", price: "0", priceCurrency: "ARS" },
+            publisher: { "@type": "Organization", name: ORGANIZATION.name, url: SITE_URL },
+          },
+        ],
+      }} />
       <Header />
+      <main>
       <Hero />
       <section id="entidades" className="scroll-mt-8">
         <div className="container">
@@ -98,7 +136,7 @@ const LandingPage = async () => {
           <InnerContainer symetric={true}>
             <Image src="/images/s-fide.png" alt="S-FiDE" width={1200} height={222} className="w-full max-w-[460px]" />
             {version && <span className="inline-block mt-6 border border-white/40 px-3 py-1 text-xs tracking-wide uppercase">Versión {version} · Software libre GPL v2 o posterior</span>}
-            <H3 className="text-alternative-title mt-10">Sistema de Firma Digital Extendido</H3>
+            <H3 as="h2" className="text-alternative-title mt-10">Sistema de Firma Digital Extendido</H3>
             <p className="text-2xl py-8 font-[500] leading-[1.4] max-w-[820px]">Firmá y verificá documentos XML y PDF con tu certificado digital. Software libre, sin intermediarios y listo para integrar.</p>
 
             <div className="max-w-[820px] space-y-4 text-xl font-[400]">
@@ -108,7 +146,7 @@ const LandingPage = async () => {
 
             {mostrarNovedades && (
               <div className="mt-12 max-w-[820px] bg-white/10 p-8">
-                <h4 className="text-xl font-medium mb-4">Novedades de la versión {SFIDE_NOVEDADES.version}</h4>
+                <h3 className="text-xl font-medium mb-4">Novedades de la versión {SFIDE_NOVEDADES.version}</h3>
                 <ul className="space-y-2 text-base list-disc pl-5">
                   {SFIDE_NOVEDADES.items.map((i) => <li key={i}>{i}</li>)}
                 </ul>
@@ -119,7 +157,7 @@ const LandingPage = async () => {
             <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
               {ALCANCES.map((a) => (
                 <div key={a.title} className="border border-white/30 p-8">
-                  <h4 className="text-2xl font-medium mb-4">{a.title}</h4>
+                  <h3 className="text-2xl font-medium mb-4">{a.title}</h3>
                   <ul className="space-y-2 text-base list-disc pl-5">
                     {a.items.map((i) => <li key={i}>{i}</li>)}
                   </ul>
@@ -128,28 +166,28 @@ const LandingPage = async () => {
             </div>
             <p className="mt-6 text-base opacity-80">Plataformas: Windows, Linux y macOS. No requiere instalar Java.</p>
 
-            <h4 className="text-2xl font-medium mt-20 mb-8">Cualidades técnicas</h4>
+            <h3 className="text-2xl font-medium mt-20 mb-8">Cualidades técnicas</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
               {CUALIDADES.map((c) => (
                 <div key={c.title}>
-                  <h5 className="text-xl font-medium mb-2">{c.title}</h5>
+                  <h4 className="text-xl font-medium mb-2">{c.title}</h4>
                   <p className="text-base opacity-90">{c.text}</p>
                 </div>
               ))}
             </div>
 
-            <h4 className="text-2xl font-medium mt-20 mb-8">Estándares y marco normativo</h4>
+            <h3 className="text-2xl font-medium mt-20 mb-8">Estándares y marco normativo</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
               {ESTANDARES.map((e) => (
                 <div key={e.title}>
-                  <h5 className="text-xl font-medium mb-2">{e.title}</h5>
+                  <h4 className="text-xl font-medium mb-2">{e.title}</h4>
                   <p className="text-base opacity-90">{e.text}</p>
                 </div>
               ))}
             </div>
             <p className="mt-6 text-base opacity-80">Catorce módulos de línea de comandos, cada uno invocable como proceso propio, más la interfaz gráfica S-FiDE GUI que los agrupa.</p>
 
-            <h4 className="text-2xl font-medium mt-20 mb-6">Para quién es</h4>
+            <h3 className="text-2xl font-medium mt-20 mb-6">Para quién es</h3>
             <ul className="space-y-2 text-lg list-disc pl-5 max-w-[820px]">
               {PARA_QUIEN.map((p) => <li key={p}>{p}</li>)}
             </ul>
@@ -169,6 +207,7 @@ const LandingPage = async () => {
           </InnerContainer>
         </div>
       </section>
+      </main>
       <Footer />
     </div>
   )

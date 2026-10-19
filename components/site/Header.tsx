@@ -9,7 +9,9 @@ export const Header = () => {
     <header>
       <div className="w-full flex flex-wrap sm:flex-nowrap items-center justify-between px-[calc(2rem+3%)] py-8 sm:p-8   text-white bg-c1 relative">
          <div className="hidden lg:order-2 lg:block">
-         <Navigation />
+         <nav aria-label="Principal">
+            <Navigation />
+         </nav>
 
          </div>
          <div className="lg:hidden sm:order-3 flex flex-col items-center">

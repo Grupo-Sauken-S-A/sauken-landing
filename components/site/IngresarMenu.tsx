@@ -37,7 +37,7 @@ export default function IngresarMenu() {
             <li key={item.title}>
               <Link
                 href={item.href}
-                {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(item.external ? { target: "_blank", rel: item.nofollow ? "noopener noreferrer nofollow" : "noopener noreferrer" } : {})}
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-between gap-3 px-5 py-3 text-sm hover:bg-[#EDF1FF]"
               >

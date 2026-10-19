@@ -8,18 +8,18 @@ export const Accesos = () => {
       <div className="space-y-16">
          {ACCESOS.map((grupo) => (
             <div key={grupo.title}>
-               <H4 className="text-c1 mb-6">{grupo.title}</H4>
+               <H4 as="h3" className="text-c1 mb-6">{grupo.title}</H4>
                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
                   {grupo.items.map((item) => (
                      <Link
                         key={item.title}
                         href={item.href}
-                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        {...(item.external ? { target: "_blank", rel: item.nofollow ? "noopener noreferrer nofollow" : "noopener noreferrer" } : {})}
                         className="group flex flex-col justify-between border border-lightblue p-6 text-c2 transition-colors hover:bg-[#EDF1FF] focus-visible:outline-2 focus-visible:outline-c2"
                      >
                         <div>
                            <div className="flex items-start justify-between gap-4">
-                              <h5 className="text-xl font-medium text-c1">{item.title}</h5>
+                              <h4 className="text-xl font-medium text-c1">{item.title}</h4>
                               {item.badge && (
                                  <span className="shrink-0 inline-flex items-center gap-1 bg-c1 text-white text-xs px-2 py-1">
                                     <Lock size={12} aria-hidden="true" />{item.badge}

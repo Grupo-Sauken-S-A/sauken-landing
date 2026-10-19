@@ -32,8 +32,8 @@ export const Footer = () => {
 
             <div className="flex col-span-6 md:col-span-3 lg:col-span-2  flex-col justify-between h-full lg:order-3">
               <div className="pr-8 xl:pr-20">
-                <H5>Mapa del Sitio</H5>
-                <div className="grid grid-cols-1 md:grid-cols-2 mt-4">
+                <H5 as="h2">Mapa del Sitio</H5>
+                <nav aria-label="Mapa del sitio" className="grid grid-cols-1 md:grid-cols-2 mt-4">
                   {MENU_ITEMS.map((item, fIndex) => {
                     return (
                       <Link key={fIndex} href={item.url} className="hover:font-semibold" >
@@ -41,7 +41,7 @@ export const Footer = () => {
                       </Link>
                     )
                   })}
-                </div>
+                </nav>
               </div>
               <div className="text-xs pt-12"><b className="uppercase">{new Date().getFullYear()} Sauken</b> &copy; All Rights Reserved</div>
             </div>

@@ -5,6 +5,8 @@ export interface Acceso {
    cta: string
    badge?: string
    external?: boolean
+   /** Páginas de ingreso con usuario: no deben seguirse ni posicionarse */
+   nofollow?: boolean
 }
 
 export interface GrupoAccesos {
@@ -58,6 +60,7 @@ export const ACCESOS: GrupoAccesos[] = [
             title: "Sauken Mail",
             description: "Tu correo de trabajo en la infraestructura propia de Grupo Sauken: simple, seguro y siempre disponible.",
             href: "https://webmail.sauken.com.ar/",
+            nofollow: true,
             cta: "Ingresar al correo",
             external: true,
          },
@@ -65,6 +68,7 @@ export const ACCESOS: GrupoAccesos[] = [
             title: "Sauken Nube",
             description: "El espacio de trabajo de Grupo Sauken: archivos, calendario y colaboración en la nube propia.",
             href: "https://nextcloud.sauken.com.ar/",
+            nofollow: true,
             cta: "Ingresar a la nube",
             external: true,
          },
@@ -72,6 +76,7 @@ export const ACCESOS: GrupoAccesos[] = [
             title: "Sauken Acceso",
             description: "Escritorios remotos desde el navegador. Solo funciona desde la red de Sauken o con una conexión VPN: pedí tu acceso VPN a soporte@sauken.com.ar.",
             href: "https://guacamole.sauken.com.ar/",
+            nofollow: true,
             cta: "Ver cómo ingresar",
             badge: "Requiere VPN",
             external: true,
@@ -92,6 +97,7 @@ export const ACCESOS: GrupoAccesos[] = [
             title: "Infraestructura Sauken",
             description: "Cómo operamos, protegemos y respaldamos la plataforma donde corren las aplicaciones de nuestros clientes.",
             href: "https://sauken.com.ar/infra/",
+            nofollow: true,
             cta: "Ingresar",
             badge: "Con usuario",
             external: true,
@@ -101,10 +107,10 @@ export const ACCESOS: GrupoAccesos[] = [
 ]
 
 // Accesos principales del menú "Ingresar" del encabezado
-export const INGRESAR_ITEMS: Pick<Acceso, "title" | "href" | "badge" | "external">[] = [
+export const INGRESAR_ITEMS: Pick<Acceso, "title" | "href" | "badge" | "external" | "nofollow">[] = [
    { title: "S-BRM · Plataforma de Negocios", href: ACCESOS[0].items[0].href, external: true },
    { title: "S-COD · Certificados de Origen", href: "/landing" },
-   { title: "Sauken Mail", href: "https://webmail.sauken.com.ar/", external: true },
-   { title: "Sauken Nube", href: "https://nextcloud.sauken.com.ar/", external: true },
-   { title: "Sauken Acceso", href: "https://guacamole.sauken.com.ar/", badge: "Requiere VPN", external: true },
+   { title: "Sauken Mail", href: "https://webmail.sauken.com.ar/", external: true, nofollow: true },
+   { title: "Sauken Nube", href: "https://nextcloud.sauken.com.ar/", external: true, nofollow: true },
+   { title: "Sauken Acceso", href: "https://guacamole.sauken.com.ar/", badge: "Requiere VPN", external: true, nofollow: true },
 ]
