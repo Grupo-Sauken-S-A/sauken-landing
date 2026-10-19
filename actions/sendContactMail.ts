@@ -75,7 +75,7 @@ export async function sendContactMail(values: z.infer<typeof ContactSchema>) {
   const { name, email, phone, company, subject, message } = result.data
 
   // El remitente debe ser una dirección existente y autorizada para la cuenta SMTP (sender_login de Postfix)
-  const fromAddress = process.env.MAIL_FROM
+  const fromAddress = process.env.MAIL_FROM ?? 'soporte@sauken.com.ar'
   if (!fromAddress) {
     console.error('MAIL_FROM no configurado')
     return { error: "No pudimos enviar tu consulta. Intentá nuevamente." }
