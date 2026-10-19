@@ -7,11 +7,16 @@ import { ServicioCard } from "@/components/ServicioCard";
 import { InnerContainer } from "@/components/site/InnerContainer";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Slider } from "@/components/Slider";
+import { getSfideVersion } from "@/lib/sfide";
 import { Stack } from "@/components/Stack";
 import { CLIENTES } from "@/constants";
 import Image from "next/image";
 
-export default function Home() {
+// Revalida la versión de S-FiDE (GitHub) cada 3 horas
+export const revalidate = 10800;
+
+export default async function Home() {
+  const sfideVersion = await getSfideVersion();
 
   const clientes = CLIENTES;
 
@@ -19,7 +24,7 @@ export default function Home() {
     <main>
       <Hero />
       <SectionHeading title="Soluciones" id="soluciones"/>
-      <Slider />
+      <Slider sfideVersion={sfideVersion} />
 
       <SectionHeading title="Servicios" id="servicios" />
 

@@ -16,7 +16,7 @@ import { Slide3 } from './slides/Slide3';
 import { Slide4 } from './slides/Slide4';
 import { Slide5 } from './slides/Slide5';
 
-export const Slider = () => {
+export const Slider = ({ sfideVersion }: { sfideVersion?: string | null }) => {
    const [swiper, setSwiper] = useState<SwiperType | null>(null);
    const ref = useRef<HTMLDivElement>(null);
    const isInView = useInView(ref, { once: false });
@@ -75,7 +75,7 @@ export const Slider = () => {
             onMouseLeave={handleMouseLeave}
          >
             <SwiperSlide><Slide1 /></SwiperSlide>
-            <SwiperSlide><SlideFide /></SwiperSlide>
+            <SwiperSlide><SlideFide version={sfideVersion} /></SwiperSlide>
             <SwiperSlide><Slide2 /></SwiperSlide>
             <SwiperSlide><Slide3 /></SwiperSlide>
             <SwiperSlide><Slide4 /></SwiperSlide>

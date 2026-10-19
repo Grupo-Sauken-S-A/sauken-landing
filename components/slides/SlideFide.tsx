@@ -3,14 +3,16 @@ import { H3, H4 } from "@/components/Typography"
 import Image from "next/image"
 import Link from "next/link"
 import { Boton } from "../Boton"
+import { SFIDE_RELEASES_URL } from "@/constants/sfide"
 
-export const SlideFide = () => {
+export const SlideFide = ({ version }: { version?: string | null }) => {
   return (
     <div className="h-full bg-c4 text-white pb-[100px] pt-[68px] relative">
       <div className="container">
          <InnerContainer>
             <InnerContainer className="pt-[68px] bg-[url('/images/vertical-line.svg')] bg-left-top bg-no-repeat">
                <div className="slide-content">
+                  {version && <span className="inline-block mb-4 border border-white/40 px-3 py-1 text-xs tracking-wide uppercase">Versión {version}</span>}
                   <H3 className=" pr-24">Sistema de Firma Digital Extendido.</H3>
                   <H4 className="mt-7">Firmá y verificá documentos XML y PDF con tu certificado digital.</H4>
                   <div className="space-y-6 mt-12">
@@ -21,8 +23,8 @@ export const SlideFide = () => {
                      <Link href="/landing#s-fide">
                         <Boton className="mt-4 sm:mt-0" variant="secondary">Conocé más</Boton>
                      </Link>
-                     <a href="https://github.com/Grupo-Sauken-S-A/S-FIDE" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 sm:mt-0 text-lg font-semibold underline underline-offset-4">
-                        Descargalo gratis
+                     <a href={SFIDE_RELEASES_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 sm:mt-0 text-lg font-semibold underline underline-offset-4">
+                        Descargá la última versión
                      </a>
                   </div>
                </div>
