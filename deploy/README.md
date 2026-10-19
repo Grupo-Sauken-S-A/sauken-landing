@@ -14,13 +14,15 @@ Requiere autorización de jrios y ventana acordada antes de tocar producción.
     install -d -o sauken-portal -g sauken-portal /srv/sauken-portal
     install -d -m 750 -o root -g sauken-portal /etc/sauken-portal
     install -m 640 -o root -g sauken-portal /dev/null /etc/sauken-portal/portal.env
-    # Completar portal.env con las variables de .env.example (SMTP_PASS lo entrega jrios)
+    # Completar portal.env con TODAS las variables de .env.example (SMTP_USER=portal, SMTP_PASS=...)
+    # Nombres exactos: SMTP_HOST, SMTP_PORT, SMTP_TLS_SERVERNAME, SMTP_USER, SMTP_PASS, MAIL_FROM
     cp deploy/sauken-portal.service /etc/systemd/system/ && systemctl daemon-reload
 
 ## 3. Probar en el puerto 4012 (sin tocar producción)
 
     tar -xzf sauken-portal.tar.gz -C /srv/sauken-portal
-    sudo -u sauken-portal env $(cat /etc/sauken-portal/portal.env | xargs) PORT=4012 node /srv/sauken-portal/server.js
+    # portal.env es root:root 600: se lee como root y el proceso corre como sauken-portal
+    sudo bash -c 'set -a; . /etc/sauken-portal/portal.env; set +a; PORT=4012 exec runuser -u sauken-portal -- node /srv/sauken-portal/server.js'
     curl -I http://127.0.0.1:4012/
 
 ## 4. Corte (segundos)
