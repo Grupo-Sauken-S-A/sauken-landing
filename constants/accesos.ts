@@ -70,9 +70,9 @@ export const ACCESOS: GrupoAccesos[] = [
          },
          {
             title: "Sauken Acceso",
-            description: "Escritorios remotos desde el navegador. Disponible solo desde la red de Sauken o por VPN.",
+            description: "Escritorios remotos desde el navegador. Solo funciona desde la red de Sauken o con una conexión VPN: pedí tu acceso VPN a soporte@sauken.com.ar.",
             href: "https://guacamole.sauken.com.ar/",
-            cta: "Cómo ingresar",
+            cta: "Ver cómo ingresar",
             badge: "Requiere VPN",
             external: true,
          },
@@ -98,4 +98,13 @@ export const ACCESOS: GrupoAccesos[] = [
          },
       ],
    },
+]
+
+// Accesos principales del menú "Ingresar" del encabezado
+export const INGRESAR_ITEMS: Pick<Acceso, "title" | "href" | "badge" | "external">[] = [
+   { title: "S-BRM · Plataforma de Negocios", href: ACCESOS[0].items[0].href, external: true },
+   { title: "S-COD · Certificados de Origen", href: "/landing" },
+   { title: "Sauken Mail", href: "https://webmail.sauken.com.ar/", external: true },
+   { title: "Sauken Nube", href: "https://nextcloud.sauken.com.ar/", external: true },
+   { title: "Sauken Acceso", href: "https://guacamole.sauken.com.ar/", badge: "Requiere VPN", external: true },
 ]

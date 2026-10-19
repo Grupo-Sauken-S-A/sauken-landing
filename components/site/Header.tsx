@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Boton } from "../Boton"
+import IngresarMenu from "./IngresarMenu"
 import Navigation from "./Navigation"
 import Image from "next/image"
 import MobileMenu from "./MobileMenu"
@@ -17,9 +17,7 @@ export const Header = () => {
 
          </div>
          <div className="actions sm:order-2 lg:order-3 sm:max-lg:ml-auto sm:max-lg:mr-8">
-            <Link href="https://app.sauken.com.ar/" target="_blank">
-               <Boton variant="secondary">Ingresar</Boton>
-            </Link>
+            <IngresarMenu />
          </div>
          <div className="lg:order-1 w-full sm:w-auto mt-12 sm:mt-0">
             <Link href="/">
