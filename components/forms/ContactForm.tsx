@@ -27,6 +27,7 @@ export default function ContactForm() {
          phone: "",
          company: "",
          message: "",
+         website: "",
       }
    })
 
@@ -43,6 +44,7 @@ export default function ContactForm() {
          <div className="contact-form-wrap relative">
             <Image src="/images/form-bg.svg" width={298} height={214} alt="" className="absolute right-0 -top-[60px] sm:top-0 w-[25%] xl:w-[35%] " />
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
+               <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" {...form.register("website")} />
                <div className="w-full sm:w-[70%] xl:w-[60%] pt-16">
                   <FormField
                      control={form.control}

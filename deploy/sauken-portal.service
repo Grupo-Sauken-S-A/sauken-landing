@@ -1,0 +1,24 @@
+[Unit]
+Description=Portal institucional Sauken (Next.js)
+After=network.target
+
+[Service]
+User=sauken-portal
+Group=sauken-portal
+WorkingDirectory=/srv/sauken-portal
+EnvironmentFile=/etc/sauken-portal/portal.env
+Environment=NODE_ENV=production
+Environment=PORT=4002
+Environment=HOSTNAME=0.0.0.0
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=3
+
+# Endurecimiento
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
