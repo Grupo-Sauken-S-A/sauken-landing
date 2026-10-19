@@ -6,6 +6,7 @@ import Link from "next/link"
 
 interface Logo {
   img: string
+  name?: string
   link?: string
 }
 
@@ -42,7 +43,7 @@ export default function ClientsCarousel({
       >
         <Image
           src={logo.img}
-          alt=""
+          alt={logo.name ?? ""}
           width={logoWidth}
           height={logoHeight}
           loading="eager"
