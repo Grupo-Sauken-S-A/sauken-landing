@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Slide1 } from './slides/Slide1';
+import { SlideFide } from './slides/SlideFide';
 import { Slide2 } from './slides/Slide2';
 import { Slide3 } from './slides/Slide3';
 import { Slide4 } from './slides/Slide4';
@@ -74,6 +75,7 @@ export const Slider = () => {
             onMouseLeave={handleMouseLeave}
          >
             <SwiperSlide><Slide1 /></SwiperSlide>
+            <SwiperSlide><SlideFide /></SwiperSlide>
             <SwiperSlide><Slide2 /></SwiperSlide>
             <SwiperSlide><Slide3 /></SwiperSlide>
             <SwiperSlide><Slide4 /></SwiperSlide>

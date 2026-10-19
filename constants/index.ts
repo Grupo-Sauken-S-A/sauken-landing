@@ -27,7 +27,6 @@ export const CLIENTES = [
    { img: "/images/clientes/ccaa.jpg", name: "Cámara de Comercio Argentino Árabe", link: "https://ccaa.certificadoorigen.com.ar/" },
    { img: "/images/clientes/ccej.jpg", name: "Cámara de Comercio Exterior de Jujuy", link: "https://ccej.certificadoorigen.com.ar/" },
    { img: "/images/clientes/cces.jpg", name: "Cámara de Comercio Exterior de Salta", link: "https://cces.certificadoorigen.com.ar/" },
-   { img: "/images/clientes/ade.jpg", name: "Agencia de Desarrollo Empresarial de Formosa" },
 ];
 
 export const TECHSTACK = [
