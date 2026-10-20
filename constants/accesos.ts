@@ -1,3 +1,5 @@
+import { SOCIAL } from "@/constants/site"
+
 export interface Acceso {
    title: string
    description: string
@@ -89,7 +91,7 @@ export const ACCESOS: GrupoAccesos[] = [
          {
             title: "Sauken en GitHub",
             description: "Código abierto de Sauken: S-FiDE, COD-Viewer y DJO-Viewer, bajo licencia GPL.",
-            href: "https://github.com/Grupo-Sauken-S-A/",
+            href: SOCIAL.github,
             cta: "Ver repositorios",
             external: true,
          },
