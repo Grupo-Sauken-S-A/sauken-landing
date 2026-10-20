@@ -57,7 +57,8 @@ export const Slider = ({ sfideVersion }: { sfideVersion?: string | null }) => {
                bulletClass: 'swiper-pagination-bullet',
                bulletActiveClass: 'swiper-pagination-bullet-active',
             }}
-            autoHeight={false}
+            autoHeight={true}
+            breakpoints={{ 640: { autoHeight: false } }}
             autoplay={{
                delay: 4000,
                disableOnInteraction: false,

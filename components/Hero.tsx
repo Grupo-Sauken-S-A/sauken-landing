@@ -18,11 +18,11 @@ export const Hero = () => {
 
             <div className="py-[40px] sm:py-[50px] lg:py-[80px] grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-24 items-center">
                <div>
-                  <p className="text-xl text-c2">Con una amplia trayectoria en el desarrollode aplicaciones y la provisión de servicios de soporte y consultoría, <b>somos expertos en software para optimizar tu negocio.</b></p>
+                  <p className="text-xl text-c2">Con una amplia trayectoria en el desarrollo de aplicaciones y la provisión de servicios de soporte y consultoría, <b>somos expertos en software para optimizar tu negocio.</b></p>
                </div>
                
                <div className="border border-c2 p-8 lg:p-[50px] bg-rectangle">
-                  <p className="text-c2">Nos especializamos en soluciones paralos rubros de retail, manufactura y logística, ayudando a empresas a optimizar sus procesos y alcanzar sus objetivos.</p>
+                  <p className="text-c2">Nos especializamos en soluciones para los rubros de retail, manufactura y logística, ayudando a empresas a optimizar sus procesos y alcanzar sus objetivos.</p>
                </div>
             </div>
             <div className="flex justify-between lg:justify-end items-center lg:gap-x-20">

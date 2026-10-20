@@ -6,15 +6,15 @@ import { Boton } from "../Boton"
 
 export const Slide1 = () => {
   return (
-    <div className="h-full bg-c1 text-white pb-[100px] pt-[68px] relative">
+    <div className="h-full bg-c1 text-white pb-14 pt-10 sm:pb-[100px] sm:pt-[68px] relative">
       <div className="container">
          <InnerContainer>
-            <InnerContainer className="pt-[68px] bg-[url('/images/vertical-line.svg')] bg-left-top bg-no-repeat">
+            <InnerContainer className="pt-8 sm:pt-[68px] bg-[url('/images/vertical-line.svg')] bg-left-top bg-no-repeat">
                <div className="slide-content">
-                  <H3 className=" pr-24">Gestión de Certificados de Origen de Comercio Exterior.</H3>
-                  <H4 className="mt-7">Tu aliado para la gestión de Certificados de Origen y Firma Digital.</H4>
-                  <div className="space-y-6 mt-12">
-                     <p>Con 20 entidades y cámaras exportadoras utilizando nuestro sistema,S-COD se ha convertido en la solución líder para la generación y validaciónde Certificados de Origen, tanto en formato impreso como en versión digital.</p>
+                  <H3 className="pr-2 sm:pr-24">Gestión de Certificados de Origen de Comercio Exterior.</H3>
+                  <H4 className="mt-4 sm:mt-7">Tu aliado para la gestión de Certificados de Origen y Firma Digital.</H4>
+                  <div className="space-y-3 sm:space-y-6 mt-6 sm:mt-12">
+                     <p>Con 20 entidades y cámaras exportadoras utilizando nuestro sistema, S-COD se ha convertido en la solución líder para la generación y validación de Certificados de Origen, tanto en formato impreso como en versión digital.</p>
                      <p>Te permite simplificar y agilizar tus procesos de exportación, mejorando la eficiencia y seguridad. Incluye soporte del nuevo Régimen de Origen MERCOSUR, visualizadores de COD y DJO, e integración por CSV y webservices.</p>
                   </div>
 
@@ -29,7 +29,7 @@ export const Slide1 = () => {
             </InnerContainer>
             <Image src="/images/s-cod.svg" width={506} height={98} alt="S-COD" className="slide-logo" />
          </InnerContainer>
-         <Image src="/images/slide-bg.svg" width={341} height={196}  alt="" className="absolute right-0 bottom-[80px] z-10" style={{ objectFit: 'none', objectPosition: 'center'}} />
+         <Image src="/images/slide-bg.svg" width={341} height={196}  alt="" aria-hidden="true" className="pointer-events-none hidden sm:block absolute right-0 bottom-[80px] z-10" style={{ objectFit: 'none', objectPosition: 'center'}} />
       </div>
     </div>
   )

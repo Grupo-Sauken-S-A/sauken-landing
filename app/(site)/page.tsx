@@ -51,13 +51,13 @@ export default async function Home() {
               image={<Image src="/images/icon-dsm.svg" alt="Desarrollo de Software a Medida" width={70} height={56} />}
             >
               <p>Desarrollamos productos de software con tecnologías de vanguardia que se ajusten a tus requerimientos y te permitan impulsar tus proyectos.</p>
-              <p>Si sientes que  tu sistema actual quedó obsoleto,nosotros nos ocupamos de modernizarlo.</p>
+              <p>Si sientes que tu sistema actual quedó obsoleto, nosotros nos ocupamos de modernizarlo.</p>
             </ServicioCard>
 
             <ServicioCard title="Arquitectura de Microservicios"
               image={<Image src="/images/icon-am.svg" alt="Arquitectura de Microservicios" width={70} height={70} />}
             >
-              <p>Construímos productos modulares que se adaptena tus necesidades. Nuestra arquitectura basada en pequeños servicios garantiza flexibilidad y autonomía.</p>
+              <p>Construimos productos modulares que se adaptan a tus necesidades. Nuestra arquitectura basada en pequeños servicios garantiza flexibilidad y autonomía.</p>
               <p>Cada componente opera independientemente para abordar funcionalidades completas de tu negocio.</p>
 
             </ServicioCard>
@@ -73,7 +73,7 @@ export default async function Home() {
               image={<Image src="/images/icon-cit.svg" alt="Consultoría en IT" width={70} height={58} />}
             >
               <p>Proveemos servicios de asesoría personalizados en tecnologías de la información.</p>
-              <p>Si su empresa está en busca de orientación tecnológica,capacitaciones, auditorías, acceso a conocimiento y experienciaprofesional, ayuda en proyectos en curso o requiere un interlocutor que hable el mismo lenguaje técnicode su industria, estamos para ayudarle.</p>
+              <p>Si su empresa está en busca de orientación tecnológica, capacitaciones, auditorías, acceso a conocimiento y experiencia profesional, ayuda en proyectos en curso o requiere un interlocutor que hable el mismo lenguaje técnico de su industria, estamos para ayudarle.</p>
             </ServicioCard>
 
             <ServicioCard title="Datacenter"

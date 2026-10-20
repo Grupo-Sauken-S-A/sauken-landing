@@ -51,7 +51,7 @@ export default function ContactForm() {
                      control={form.control}
                      name="name"
                      render={({ field }) => (
-                        <FormItem className="flex gap-x-6">
+                        <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                            <FormLabel>Nombre:</FormLabel>
                            <div className="flex-grow">
                               <FormControl>
@@ -66,7 +66,7 @@ export default function ContactForm() {
                      control={form.control}
                      name="phone"
                      render={({ field }) => (
-                        <FormItem className="flex gap-x-6">
+                        <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                            <FormLabel>Teléfono:</FormLabel>
                            <div className="flex-grow">
                               <FormControl>
@@ -82,7 +82,7 @@ export default function ContactForm() {
                      control={form.control}
                      name="email"
                      render={({ field }) => (
-                        <FormItem className="flex gap-x-6">
+                        <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                            <FormLabel>Email:</FormLabel>
                            <div className="flex-grow">
                               <FormControl>
@@ -97,7 +97,7 @@ export default function ContactForm() {
                      control={form.control}
                      name="company"
                      render={({ field }) => (
-                        <FormItem className="flex gap-x-6">
+                        <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                            <FormLabel>Empresa:</FormLabel>
                            <div className="flex-grow">
                               <FormControl>
@@ -115,7 +115,7 @@ export default function ContactForm() {
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
-                     <FormItem className="flex gap-x-6">
+                     <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                         <FormLabel>Asunto:</FormLabel>
                         <div className="flex-grow">
                            <FormControl>
@@ -130,7 +130,7 @@ export default function ContactForm() {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                     <FormItem className="flex gap-x-6">
+                     <FormItem className="flex flex-col gap-1 sm:flex-row sm:gap-x-6">
                         <FormLabel>Mensaje:</FormLabel>
                         <div className="flex-grow">
                            <FormControl>

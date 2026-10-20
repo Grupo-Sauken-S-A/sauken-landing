@@ -13,7 +13,7 @@ export const ORGANIZATION = {
       addressCountry: "AR",
    },
    sameAs: [
-      "https://www.linkedin.com/company/grupo-sauken-s.a",
+      "https://www.linkedin.com/company/grupo-sauken-s.a.",
       "https://www.facebook.com/GrupoSauken/",
       "https://github.com/Grupo-Sauken-S-A/",
    ],

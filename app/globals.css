@@ -180,7 +180,12 @@ body {
 }
 
 .slide-content{
-  @apply px-4 sm:px-0 lg:max-w-[730px] min-h-[650px] lg:min-h-[470px]  md:min-h-[500px] md:pr-16 sm:min-h-[470px] sm:pr-10;
+  @apply px-4 sm:px-0 lg:max-w-[730px] min-h-0 sm:min-h-[470px] md:min-h-[500px] lg:min-h-[470px] md:pr-16 sm:pr-10;
+}
+
+/* Texto de los slides: más compacto en móvil */
+.slide-content p{
+  @apply text-sm leading-relaxed sm:text-base;
 }
 
 
