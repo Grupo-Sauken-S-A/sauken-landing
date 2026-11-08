@@ -70,7 +70,16 @@ bash ./deploy/build-release.sh
 
 PKG="$REPO_DIR/sauken-portal.tar.gz"
 [ -s "$PKG" ] || fail "No se generó $PKG. No se tocó la instalación actual."
-tar -tzf "$PKG" | grep -qE '(^|/)server\.js$' || fail "El paquete no contiene server.js. No se tocó la instalación actual."
+# Sin tubería: con "pipefail", grep -q cierra la tubería al primer acierto, tar recibe SIGPIPE y el chequeo da falso error.
+PKG_LIST="$(mktemp)"
+tar -tzf "$PKG" > "$PKG_LIST" || fail "No se pudo leer $PKG (¿paquete dañado?). No se tocó la instalación actual."
+if ! grep -qE '(^|/)server\.js$' "$PKG_LIST"; then
+  echo "Primeras entradas del paquete:"; head -n 10 "$PKG_LIST"
+  rm -f "$PKG_LIST"
+  fail "El paquete no contiene server.js. No se tocó la instalación actual."
+fi
+echo "Entradas en el paquete: $(wc -l < "$PKG_LIST")"
+rm -f "$PKG_LIST"
 echo "Paquete OK: $(du -h "$PKG" | cut -f1)"
 
 # ---------------------------------------------------------- 2. preparar carpeta
