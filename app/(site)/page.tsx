@@ -6,6 +6,8 @@ import { Hero } from "@/components/Hero";
 import { ServicioCard } from "@/components/ServicioCard";
 import { InnerContainer } from "@/components/site/InnerContainer";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { H3 } from "@/components/Typography";
+import { InfraestructuraResumen } from "@/components/infra/InfraestructuraResumen";
 import { Slider } from "@/components/Slider";
 import { getSfideVersion } from "@/lib/sfide";
 import { Accesos } from "@/components/site/Accesos";
@@ -46,80 +48,116 @@ export default async function Home() {
       <div className="container">
         <InnerContainer className="bg-[url(/images/servicios-bg-2.svg)]  bg-no-repeat bg-[position:100%_100%] bg-[size:92%_auto] relative pb-[200px] lg:pb-[80px]">
           <Image src="/images/servicios-bg-1.svg" width={298} height={170} alt="" className="absolute bottom-[10px] lg:bottom-[70px] right-[170px]" />
-          <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24 lg:gap-y-16">
-            <ServicioCard title="Desarrollo de Software a medida"
-              image={<Image src="/images/icon-dsm.svg" alt="Desarrollo de Software a Medida" width={70} height={56} />}
-            >
-              <p>Desarrollamos productos de software con tecnologías de vanguardia que se ajusten a tus requerimientos y te permitan impulsar tus proyectos.</p>
-              <p>Si sientes que tu sistema actual quedó obsoleto, nosotros nos ocupamos de modernizarlo.</p>
-            </ServicioCard>
+          <div className="mb-16 lg:mb-20">
+            <H3 className="text-c1 mb-10 lg:mb-12">Desarrollo y consultoría</H3>
+            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24 lg:gap-y-16">
+              <ServicioCard title="Desarrollo de Software a medida"
+                image={<Image src="/images/icon-dsm.svg" alt="Desarrollo de Software a Medida" width={70} height={56} />}
+              >
+                <p>Desarrollamos productos de software con tecnologías de vanguardia que se ajusten a tus requerimientos y te permitan impulsar tus proyectos.</p>
+                <p>Si sientes que tu sistema actual quedó obsoleto, nosotros nos ocupamos de modernizarlo.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Arquitectura de Microservicios"
-              image={<Image src="/images/icon-am.svg" alt="Arquitectura de Microservicios" width={70} height={70} />}
-            >
-              <p>Construimos productos modulares que se adaptan a tus necesidades. Nuestra arquitectura basada en pequeños servicios garantiza flexibilidad y autonomía.</p>
-              <p>Cada componente opera independientemente para abordar funcionalidades completas de tu negocio.</p>
+              <ServicioCard title="Arquitectura de Microservicios"
+                image={<Image src="/images/icon-am.svg" alt="Arquitectura de Microservicios" width={70} height={70} />}
+              >
+                <p>Construimos productos modulares que se adaptan a tus necesidades. Nuestra arquitectura basada en pequeños servicios garantiza flexibilidad y autonomía.</p>
+                <p>Cada componente opera independientemente para abordar funcionalidades completas de tu negocio.</p>
 
-            </ServicioCard>
+              </ServicioCard>
 
-            <ServicioCard title="Virtualización"
-              image={<Image src="/images/icon-v.svg" alt="Virtualización" width={57} height={71} />}
-            >
-              <p>Proporcionamos servicios de virtualización mediante máquinas virtuales y redes privadas virtuales.</p>
-              <p>Nuestro enfoque se adapta a las necesidades específicas de cada caso, utilizando tecnología de vanguardia para lograr los mejores resultados. Virtualiza tus aplicaciones, servicios y procesos para optimizar la eficiencia de tus operaciones y recursos.</p>
-            </ServicioCard>
+              <ServicioCard title="Consultoría en IT"
+                image={<Image src="/images/icon-cit.svg" alt="Consultoría en IT" width={70} height={58} />}
+              >
+                <p>Proveemos servicios de asesoría personalizados en tecnologías de la información.</p>
+                <p>Si su empresa está en busca de orientación tecnológica, capacitaciones, auditorías, acceso a conocimiento y experiencia profesional, ayuda en proyectos en curso o requiere un interlocutor que hable el mismo lenguaje técnico de su industria, estamos para ayudarle.</p>
+              </ServicioCard>
+            </div>
+          </div>
+          <div className="mb-16 lg:mb-20">
+            <H3 className="text-c1 mb-10 lg:mb-12">Infraestructura y operación</H3>
+            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24 lg:gap-y-16">
+              <ServicioCard title="Datacenter"
+                image={<Image src="/images/icon-d.svg" alt="Datacenter" width={70} height={61} />}
+              >
+                <p>En nuestro centro de procesamiento de datos, podrás alojar servidores dedicados y virtualizados tanto para nuestras aplicaciones como para las de terceros.</p>
+                <p>Nuestra infraestructura se caracteriza por la redundancia en los sistemas de procesamiento, almacenamiento, conectividad y energía, garantizando la disponibilidad constante de los servicios.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Consultoría en IT"
-              image={<Image src="/images/icon-cit.svg" alt="Consultoría en IT" width={70} height={58} />}
-            >
-              <p>Proveemos servicios de asesoría personalizados en tecnologías de la información.</p>
-              <p>Si su empresa está en busca de orientación tecnológica, capacitaciones, auditorías, acceso a conocimiento y experiencia profesional, ayuda en proyectos en curso o requiere un interlocutor que hable el mismo lenguaje técnico de su industria, estamos para ayudarle.</p>
-            </ServicioCard>
+              <ServicioCard title="Virtualización"
+                image={<Image src="/images/icon-v.svg" alt="Virtualización" width={57} height={71} />}
+              >
+                <p>Proporcionamos servicios de virtualización mediante máquinas virtuales y redes privadas virtuales.</p>
+                <p>Nuestro enfoque se adapta a las necesidades específicas de cada caso, utilizando tecnología de vanguardia para lograr los mejores resultados. Virtualiza tus aplicaciones, servicios y procesos para optimizar la eficiencia de tus operaciones y recursos.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Datacenter"
-              image={<Image src="/images/icon-d.svg" alt="Datacenter" width={70} height={61} />}
-            >
-              <p>En nuestro centro de procesamiento de datos, podrás alojar servidores dedicados y virtualizados tanto para nuestras aplicaciones como para las de terceros.</p>
-              <p>Nuestra infraestructura se caracteriza por la redundancia en los sistemas de procesamiento, almacenamiento, conectividad y energía, garantizando la disponibilidad constante de los servicios.</p>
-            </ServicioCard>
+              <ServicioCard title="Infraestructura gestionada y seguridad"
+                image={<Image src="/images/icon-ig.svg" alt="Infraestructura gestionada y seguridad" width={70} height={70} />}
+              >
+                <p>Operamos y vigilamos la plataforma donde corren las aplicaciones de nuestros clientes: doble salida a Internet con equipos de respaldo y cada aplicación crítica en su propio entorno aislado.</p>
+                <p>Los cambios disruptivos se hacen solo en ventanas acordadas, fuera del horario de trabajo y con aviso previo.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Firma Digital y Comercio Exterior"
-              image={<Image src="/images/icon-fce.svg" alt="Firma Digital y Comercio Exterior" width={70} height={70} />}
-            >
-              <p>Plataformas de Certificados de Origen Digital (COD) y Declaraciones Juradas de Origen (DJO) para ALADI y MERCOSUR, con soporte del nuevo Régimen de Origen MERCOSUR e integración por archivos CSV y webservices SOAP.</p>
-              <p>Con S-FiDE firmás y verificás documentos XML y PDF, y con los visualizadores de COD y DJO cualquier sistema puede mostrar sus documentos.</p>
-            </ServicioCard>
+              <ServicioCard title="Correo y Nube corporativa"
+                image={<Image src="/images/icon-cn.svg" alt="Correo y Nube corporativa" width={70} height={70} />}
+              >
+                <p>Correo electrónico propio, con autenticación SPF, DKIM y DMARC, y un espacio de trabajo en la nube para archivos, calendario y colaboración.</p>
+                <p>Todo se aloja en la infraestructura de Sauken, bajo tu control y sin depender de terceros.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Correo y Nube corporativa"
-              image={<Image src="/images/icon-cn.svg" alt="Correo y Nube corporativa" width={70} height={70} />}
-            >
-              <p>Correo electrónico propio, con autenticación SPF, DKIM y DMARC, y un espacio de trabajo en la nube para archivos, calendario y colaboración.</p>
-              <p>Todo se aloja en la infraestructura de Sauken, bajo tu control y sin depender de terceros.</p>
-            </ServicioCard>
+              <ServicioCard title="Acceso remoto seguro"
+                image={<Image src="/images/icon-ar.svg" alt="Acceso remoto seguro" width={70} height={70} />}
+              >
+                <p>Escritorios remotos desde el navegador de cualquier computadora o celular, con tus aplicaciones y tus archivos, como si estuvieras frente al equipo.</p>
+                <p>El acceso no se expone a Internet: se ingresa por VPN, con cuentas individuales y registro de accesos.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Acceso remoto seguro"
-              image={<Image src="/images/icon-ar.svg" alt="Acceso remoto seguro" width={70} height={70} />}
-            >
-              <p>Escritorios remotos desde el navegador de cualquier computadora o celular, con tus aplicaciones y tus archivos, como si estuvieras frente al equipo.</p>
-              <p>El acceso no se expone a Internet: se ingresa por VPN, con cuentas individuales y registro de accesos.</p>
-            </ServicioCard>
+              <ServicioCard title="Copias de seguridad"
+                image={<Image src="/images/icon-cs.svg" alt="Copias de seguridad" width={70} height={70} />}
+              >
+                <p>Copias automáticas de tus bases de datos y aplicaciones, guardadas en equipos distintos del original y con una política de retención definida.</p>
+                <p>Recibís un informe del resultado de cada copia y un aviso inmediato ante cualquier falla.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Infraestructura gestionada y seguridad"
-              image={<Image src="/images/icon-ig.svg" alt="Infraestructura gestionada y seguridad" width={70} height={70} />}
-            >
-              <p>Operamos y vigilamos la plataforma donde corren las aplicaciones de nuestros clientes: doble salida a Internet con equipos de respaldo y cada aplicación crítica en su propio entorno aislado.</p>
-              <p>Los cambios disruptivos se hacen solo en ventanas acordadas, fuera del horario de trabajo y con aviso previo.</p>
-            </ServicioCard>
+              <ServicioCard title="Ambientes de prueba"
+                image={<Image src="/images/icon-at.svg" alt="Ambientes de prueba" width={70} height={70} />}
+              >
+                <p>Un entorno de testing para probar cambios y nuevas versiones antes de llevarlos a producción.</p>
+                <p>Así validás las actualizaciones sin arriesgar tu operación diaria.</p>
+              </ServicioCard>
 
-            <ServicioCard title="Software libre"
-              image={<Image src="/images/icon-sl.svg" alt="Software libre" width={70} height={70} />}
-            >
-              <p>Publicamos herramientas bajo licencia GPL, abiertas y auditables, como S-FiDE, COD-Viewer y DJO-Viewer.</p>
-              <p>Podés usarlas, estudiarlas, adaptarlas e integrarlas a tus propios sistemas.</p>
-            </ServicioCard>
+              <ServicioCard title="Monitoreo y soporte"
+                image={<Image src="/images/icon-ms.svg" alt="Monitoreo y soporte" width={70} height={70} />}
+              >
+                <p>Vigilancia permanente de bases de datos, servicios, máquinas virtuales y aplicaciones, con alertas y tablero en vivo.</p>
+                <p>Un equipo que responde en soporte@sauken.com.ar.</p>
+              </ServicioCard>
+            </div>
+          </div>
+          <div className="">
+            <H3 className="text-c1 mb-10 lg:mb-12">Firma digital y software libre</H3>
+            <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-24 lg:gap-y-16">
+              <ServicioCard title="Firma Digital y Comercio Exterior"
+                image={<Image src="/images/icon-fce.svg" alt="Firma Digital y Comercio Exterior" width={70} height={70} />}
+              >
+                <p>Plataformas de Certificados de Origen Digital (COD) y Declaraciones Juradas de Origen (DJO) para ALADI y MERCOSUR, con soporte del nuevo Régimen de Origen MERCOSUR e integración por archivos CSV y webservices SOAP.</p>
+                <p>Con S-FiDE firmás y verificás documentos XML y PDF, y con los visualizadores de COD y DJO cualquier sistema puede mostrar sus documentos.</p>
+              </ServicioCard>
+
+              <ServicioCard title="Software libre"
+                image={<Image src="/images/icon-sl.svg" alt="Software libre" width={70} height={70} />}
+              >
+                <p>Publicamos herramientas bajo licencia GPL, abiertas y auditables, como S-FiDE, COD-Viewer y DJO-Viewer.</p>
+                <p>Podés usarlas, estudiarlas, adaptarlas e integrarlas a tus propios sistemas.</p>
+              </ServicioCard>
+            </div>
           </div>
         </InnerContainer>
       </div>
+
+      <SectionHeading title="Infraestructura gestionada" id="infraestructura">
+        <InfraestructuraResumen />
+      </SectionHeading>
 
       <SectionHeading title="Clientes" className="pt-20 pb-8">
         <p className="text-lead text-c2">Clientes que confían en nosotros:</p>
