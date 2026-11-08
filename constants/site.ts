@@ -16,10 +16,16 @@ export const ORGANIZATION = {
    email: "info@sauken.com.ar",
    telephone: "+54 9 351 519 1003",
    address: {
+      "@type": "PostalAddress",
       streetAddress: "Gral. Alvear 84, 4º Piso, Oficina C",
       addressLocality: "Córdoba",
+      addressRegion: "Córdoba",
       addressCountry: "AR",
    },
+   // Datos públicos de la ficha de LinkedIn de la empresa
+   foundingDate: "1992-06-01",
+   slogan: "Impulsando tus resultados a través de la tecnología",
+   description: "Consultora IT de Córdoba, Argentina: software a medida desarrollado con inteligencia artificial, firma digital, certificados de origen digitales e infraestructura gestionada.",
    knowsAbout: [
       "Desarrollo de software con inteligencia artificial",
       "Software a medida",
@@ -27,6 +33,9 @@ export const ORGANIZATION = {
       "Firma digital",
       "Certificados de origen digitales",
    ],
-   areaServed: "AR",
+   areaServed: [
+      { "@type": "Country", name: "Argentina" },
+      { "@type": "City", name: "Córdoba" },
+   ],
    sameAs: [SOCIAL.linkedin, SOCIAL.facebook, SOCIAL.github, ...(SOCIAL.x ? [SOCIAL.x] : [])],
 }

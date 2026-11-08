@@ -32,7 +32,7 @@ export default async function Home() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@graph": [
-          { "@type": "Organization", "@id": `${SITE_URL}/#organization`, ...ORGANIZATION },
+          { "@type": ["Organization", "ProfessionalService"], "@id": `${SITE_URL}/#organization`, ...ORGANIZATION },
           { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: SITE_NAME, inLanguage: "es-AR", publisher: { "@id": `${SITE_URL}/#organization` } },
         ],
       }} />

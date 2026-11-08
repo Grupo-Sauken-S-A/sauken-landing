@@ -125,6 +125,7 @@ const InfraestructuraPage = () => {
                         </div>
                      ))}
                   </div>
+                  <p className="mt-10 text-base"><Link href="/como-operamos-con-ia" className="underline underline-offset-4">Leé cómo operamos con IA y supervisión humana</Link>.</p>
                </InnerContainer>
             </div>
          </section>

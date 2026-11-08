@@ -61,7 +61,7 @@ const DesarrolloIaPage = () => {
                      "@type": "Organization",
                      name: ORGANIZATION.name,
                      url: SITE_URL,
-                     address: { "@type": "PostalAddress", ...ORGANIZATION.address },
+                     address: ORGANIZATION.address,
                   },
                },
                {
@@ -139,7 +139,7 @@ const DesarrolloIaPage = () => {
                         <p className="text-sm">Arquitectura de microservicios: pequeños servicios que operan de forma independiente y se adaptan a tu negocio.</p>
                      </div>
                   </div>
-                  <p className="mt-8 text-c2 max-w-3xl">Y si lo necesitás, también <Link href="/infraestructura" className="underline underline-offset-4">operamos la infraestructura</Link> donde corre tu aplicación, con asistencia de inteligencia artificial y supervisión de personas.</p>
+                  <p className="mt-8 text-c2 max-w-3xl">Y si lo necesitás, también <Link href="/infraestructura" className="underline underline-offset-4">operamos la infraestructura</Link> donde corre tu aplicación, con asistencia de inteligencia artificial y supervisión de personas. <Link href="/como-operamos-con-ia" className="underline underline-offset-4">Leé cómo trabajamos con IA</Link>.</p>
                </InnerContainer>
             </div>
          </section>
