@@ -1,6 +1,6 @@
 # Despliegue nativo en `server` (sin Docker)
 
-Contrato con Apache sin cambios: `ProxyPass / http://192.168.111.10:4002/`.
+Contrato con Apache: el portal escucha solo en `127.0.0.1:4002`; el vhost hace `ProxyPass / http://127.0.0.1:4002/`.
 Requiere autorización de jrios y ventana acordada antes de tocar producción.
 
 ## 1. Construir (en la máquina de desarrollo)

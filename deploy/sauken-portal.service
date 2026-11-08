@@ -9,7 +9,8 @@ WorkingDirectory=/srv/sauken-portal
 EnvironmentFile=/etc/sauken-portal/portal.env
 Environment=NODE_ENV=production
 Environment=PORT=4002
-Environment=HOSTNAME=0.0.0.0
+# Solo escucha en loopback: Apache (mismo equipo) hace el proxy a http://127.0.0.1:4002/
+Environment=HOSTNAME=127.0.0.1
 ExecStart=/usr/bin/node server.js
 Restart=on-failure
 RestartSec=3

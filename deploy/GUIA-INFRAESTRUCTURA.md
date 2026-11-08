@@ -4,7 +4,9 @@ Reemplazar el portal antiguo (contenedor Docker `sauken-frontend`, Next.js 14) p
 (Next.js 16), ejecutada nativamente con Node bajo systemd, sin Docker.
 
 - **Repositorio:** https://github.com/Grupo-Sauken-S-A/sauken-landing (rama `main`, público)
-- **Qué NO cambia:** el vhost de Apache (`ProxyPass / http://192.168.111.10:4002/`), el DNS, el firewall ni la ruta `/infra/`.
+- **Escucha solo en `127.0.0.1:4002`** (no en todas las interfaces). Apache está en el mismo equipo, así que el vhost debe apuntar a
+  `ProxyPass / http://127.0.0.1:4002/` (y `ProxyPassReverse` igual). Ese ajuste del vhost lo hace infraestructura en `server`.
+- **Qué NO cambia:** el DNS, el firewall ni la ruta `/infra/`.
 - **Requiere** autorización de jrios y una ventana de corte (el corte dura segundos).
 
 > ## ⚠️ No desinstalar Docker
@@ -19,7 +21,7 @@ Reemplazar el portal antiguo (contenedor Docker `sauken-frontend`, Next.js 14) p
 | Correo del formulario | API de SendGrid (`SENDGRID_API_KEY`) | SMTP autenticado a Postfix local `127.0.0.1:587` (STARTTLS) |
 | Remitente / destino | `web@sauken.com.ar` → `info@` | `soporte@sauken.com.ar` → `info@sauken.com.ar`, asunto `[Portal] …`, Reply-To del visitante |
 | Secretos | `.env` copiado dentro de la imagen | `/etc/sauken-portal/portal.env` (root, modo 600), fuera del repo |
-| Puerto | 4002 | 4002 (igual) |
+| Puerto | 4002 (todas las interfaces) | 4002, solo en `127.0.0.1` |
 
 El portal nuevo consulta `api.github.com` (versión de S-FiDE) cada 3 horas. Si `server` no sale a Internet, esa
 etiqueta simplemente no se muestra; el sitio funciona igual.
@@ -152,7 +154,7 @@ Revisión visual en el navegador: sección **Accesos**, menú **Ingresar** (desp
 carrusel de **Clientes** (20 entidades), **Soluciones** con el slide de S-FiDE, y `https://sauken.com.ar/landing`
 (entidades habilitadas y sección S-FiDE). Probar una vez más el formulario de contacto en producción.
 
-Si SELinux bloquea algo: `ausearch -m avc -ts recent` (no debería hacer falta ningún cambio: Apache ya llega al 4002).
+Si SELinux bloquea algo: `ausearch -m avc -ts recent` (no debería hacer falta ningún cambio: Apache llega al 4002 por loopback).
 
 ## 7. Reversa (segundos)
 
