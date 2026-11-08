@@ -1,6 +1,7 @@
 import { InnerContainer } from "@/components/site/InnerContainer"
 import { H3, H4 } from "@/components/Typography"
 import Image from "next/image"
+import Link from "next/link"
 
 export const Slide2 = () => {
   return (
@@ -14,10 +15,11 @@ export const Slide2 = () => {
                   <div className="space-y-3 sm:space-y-6 mt-6 sm:mt-12">
                      <p>Con S-EMS, no solo podrás planificar eventos empresariales sino también potenciar la vinculación a través de nuestra tecnología de matchmaking e inteligencia comercial.</p>
                      <p>Te permite organizar encuentros intersectoriales, conectar con potenciales clientes, acceder a información estratégica y generar oportunidades de negocio.</p>
+                     <p>Se complementa con <Link href="/#socios" className="underline underline-offset-4">Ralvy</Link>, plataforma de ticketing para eventos.</p>
                   </div>
                </div>
                </InnerContainer>
-            <Image src="/images/s-ems.svg" width={591} height={98} alt="S-COD" className="slide-logo" />
+            <Image src="/images/s-ems.svg" width={591} height={98} alt="S-EMS" className="slide-logo" />
          </InnerContainer>
          <Image src="/images/slide-bg.svg" width={341} height={196} alt="" aria-hidden="true" className="pointer-events-none hidden sm:block absolute right-0 bottom-[80px] z-10" style={{ objectFit: 'none', objectPosition: 'center'}} />
       </div>

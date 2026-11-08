@@ -17,7 +17,7 @@ export const Slide5 = () => {
                      </div>
                   </div>
                </InnerContainer>
-               <Image src="/images/s-law.svg" width={584} height={98} alt="S-COD" className="slide-logo mt-12" />
+               <Image src="/images/s-law.svg" width={584} height={98} alt="S-LAW" className="slide-logo mt-12" />
             </InnerContainer>
             <Image src="/images/slide-bg.svg" width={341} height={196}  alt="" aria-hidden="true" className="pointer-events-none hidden sm:block absolute right-0 bottom-[80px] z-10" style={{ objectFit: 'none', objectPosition: 'center' }} />
          </div>

@@ -7,6 +7,7 @@ import { ServicioCard } from "@/components/ServicioCard";
 import { InnerContainer } from "@/components/site/InnerContainer";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { H3 } from "@/components/Typography";
+import { Socios } from "@/components/site/Socios";
 import { InfraestructuraResumen } from "@/components/infra/InfraestructuraResumen";
 import { Slider } from "@/components/Slider";
 import { getSfideVersion } from "@/lib/sfide";
@@ -166,6 +167,10 @@ export default async function Home() {
       <div className="carousel-wrap xl:mx-14 mt-4">
         <ClientsCarousel logos={clientes} />
       </div>
+
+      <SectionHeading title="Socios estratégicos" id="socios">
+        <Socios />
+      </SectionHeading>
 
       <SectionHeading title="Nosotros" id="nosotros">
         <div className="space-y-4 lg:space-y-8 text-lead text-c2 max-w-4xl">
