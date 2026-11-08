@@ -104,6 +104,15 @@ export const ACCESOS: GrupoAccesos[] = [
             badge: "Con usuario",
             external: true,
          },
+         {
+            title: "LAM · Administración de cuentas",
+            description: "Herramienta web para administrar las cuentas de usuario de Sauken. Solo funciona desde la red local o por VPN.",
+            href: "https://lam.lan.sauken.com.ar/lam/",
+            cta: "Ingresar",
+            badge: "Solo LAN o VPN",
+            nofollow: true,
+            external: true,
+         },
       ],
    },
 ]
