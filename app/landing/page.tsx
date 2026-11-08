@@ -9,8 +9,8 @@ import { H2, H3 } from "@/components/Typography"
 import Image from "next/image"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { ORGANIZATION, SITE_NAME, SITE_URL } from "@/constants/site"
-import { getSfideVersion } from "@/lib/sfide"
-import { SFIDE_DOC_TECNICO_URL, SFIDE_DOC_USUARIO_URL, SFIDE_NOVEDADES, SFIDE_PAGES_URL, SFIDE_RELEASES_URL, SFIDE_REPO_URL } from "@/constants/sfide"
+import { getSfideRelease } from "@/lib/sfide"
+import { SFIDE_DOC_TECNICO_URL, SFIDE_DOC_USUARIO_URL, SFIDE_NOVEDADES_CURADAS, SFIDE_PAGES_URL, SFIDE_RELEASES_URL, SFIDE_REPO_URL } from "@/constants/sfide"
 
 const LANDING_TITLE = "S-COD y S-FiDE: Certificados de Origen y Firma Digital"
 const LANDING_DESCRIPTION = "S-COD: plataforma de Certificados de Origen Digital con las entidades habilitadas. S-FiDE: firma digital libre de documentos XML y PDF."
@@ -84,8 +84,10 @@ const PARA_QUIEN = [
 ]
 
 const LandingPage = async () => {
-  const version = await getSfideVersion()
-  const mostrarNovedades = !version || version === SFIDE_NOVEDADES.version
+  const release = await getSfideRelease()
+  const version = release?.version ?? null
+  // Prioridad: texto redactado a mano para esa versión; si no, resumen automático del release; si no, nada.
+  const novedades = release ? (SFIDE_NOVEDADES_CURADAS[release.version] ?? release.notes) : null
 
   return (
     <div>
@@ -144,13 +146,13 @@ const LandingPage = async () => {
               <p>Cuenta con una interfaz gráfica simple para quien prefiere hacer clic. Cada función también se puede invocar por línea de comandos para integrarla en sistemas propios.</p>
             </div>
 
-            {mostrarNovedades && (
+            {version && novedades && (
               <div className="mt-12 max-w-[820px] bg-white/10 p-8">
-                <h3 className="text-xl font-medium mb-4">Novedades de la versión {SFIDE_NOVEDADES.version}</h3>
+                <h3 className="text-xl font-medium mb-4">Novedades de la versión {version}</h3>
                 <ul className="space-y-2 text-base list-disc pl-5">
-                  {SFIDE_NOVEDADES.items.map((i) => <li key={i}>{i}</li>)}
+                  {novedades.map((i) => <li key={i}>{i}</li>)}
                 </ul>
-                <a href={SFIDE_PAGES_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 underline underline-offset-4 text-base">Ver todas las novedades</a>
+                <a href={release?.url ?? SFIDE_PAGES_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 underline underline-offset-4 text-base">Ver las notas completas de la versión</a>
               </div>
             )}
 
