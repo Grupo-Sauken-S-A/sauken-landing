@@ -183,15 +183,17 @@ rm -rf /Sauken/sauken-landing
 
 ## 9. Actualizaciones futuras
 
+Un solo script (como root): compila primero, valida el paquete, lo extrae en una carpeta aparte y recién entonces hace el corte
+de segundos. Verifica el sitio y, si algo falla, **vuelve solo a la versión anterior**.
+
 ```bash
-# Paso 1: compilar (el sitio sigue funcionando). NO continuar si falla o si el .tar.gz no existe.
-cd /tmp && rm -rf sauken-build && git clone https://github.com/Grupo-Sauken-S-A/sauken-landing.git sauken-build \n  && cd sauken-build && bash ./deploy/build-release.sh && ls -lh sauken-portal.tar.gz
-
-# Paso 2: recién con el paquete listo, reemplazar (corte de segundos). Todo encadenado con &&.
-cd /tmp/sauken-build && test -s sauken-portal.tar.gz \n  && systemctl stop sauken-portal \n  && rm -rf /srv/sauken-portal/* /srv/sauken-portal/.next \n  && tar -xzf sauken-portal.tar.gz -C /srv/sauken-portal \n  && chown -R sauken-portal:sauken-portal /srv/sauken-portal \n  && systemctl start sauken-portal
-
-# Si el servicio no arranca con "status=226/NAMESPACE": falta /srv/sauken-portal/.next (paquete no extraído).
+cd /tmp && rm -rf sauken-build && git clone https://github.com/Grupo-Sauken-S-A/sauken-landing.git sauken-build
+bash /tmp/sauken-build/deploy/deploy.sh
 ```
+
+- No toca la unidad systemd, el vhost de Apache ni `/etc/sauken-portal/portal.env`.
+- Deja la versión anterior en `/srv/sauken-portal.prev` (borrarla cuando se confirme que todo está bien: `rm -rf /srv/sauken-portal.prev`).
+- Reversa manual: `systemctl stop sauken-portal && rm -rf /srv/sauken-portal && mv /srv/sauken-portal.prev /srv/sauken-portal && systemctl start sauken-portal`.
 
 Tras un `zypper dup` Node puede cambiar de versión mayor: volver a probar el sitio.
 
