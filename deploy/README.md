@@ -5,7 +5,7 @@ Requiere autorización de jrios y ventana acordada antes de tocar producción.
 
 ## 1. Construir (en la máquina de desarrollo)
 
-    ./deploy/build-release.sh        # genera sauken-portal.tar.gz
+    bash ./deploy/build-release.sh   # genera sauken-portal.tar.gz
 
 ## 2. Preparar server (una sola vez)
 
