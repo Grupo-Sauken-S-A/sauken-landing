@@ -3,6 +3,7 @@ import { SocialIcons } from "./SocialIcons";
 import { InnerContainer } from "./site/InnerContainer";
 import { SVGline1 } from "./animations/SVGline1";
 import AnimatedText from "./animations/AnimatedText";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -19,6 +20,7 @@ export const Hero = () => {
             <div className="py-[40px] sm:py-[50px] lg:py-[80px] grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-24 items-center">
                <div>
                   <p className="text-xl text-c2">Con una amplia trayectoria en el desarrollo de aplicaciones y la provisión de servicios de soporte y consultoría, <b>somos expertos en software para optimizar tu negocio.</b></p>
+                  <p className="text-c2 mt-4">Desarrollamos aplicaciones con inteligencia artificial desde Córdoba, Argentina: <Link href="/desarrollo-con-ia" className="underline underline-offset-4">conocé cómo</Link>.</p>
                </div>
                
                <div className="border border-c2 p-8 lg:p-[50px] bg-rectangle">

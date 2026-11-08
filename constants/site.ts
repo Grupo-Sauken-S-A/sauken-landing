@@ -20,5 +20,13 @@ export const ORGANIZATION = {
       addressLocality: "Córdoba",
       addressCountry: "AR",
    },
+   knowsAbout: [
+      "Desarrollo de software con inteligencia artificial",
+      "Software a medida",
+      "Infraestructura gestionada",
+      "Firma digital",
+      "Certificados de origen digitales",
+   ],
+   areaServed: "AR",
    sameAs: [SOCIAL.linkedin, SOCIAL.facebook, SOCIAL.github, ...(SOCIAL.x ? [SOCIAL.x] : [])],
 }

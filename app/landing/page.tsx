@@ -7,8 +7,10 @@ import { Hero } from "@/components/landing/Hero"
 import { InnerContainer } from "@/components/site/InnerContainer"
 import { H2, H3 } from "@/components/Typography"
 import Image from "next/image"
+import Link from "next/link"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { ORGANIZATION, SITE_NAME, SITE_URL } from "@/constants/site"
+import { IA } from "@/constants/ia"
 import { getSfideRelease } from "@/lib/sfide"
 import { SFIDE_DOC_TECNICO_URL, SFIDE_DOC_USUARIO_URL, SFIDE_NOVEDADES_CURADAS, SFIDE_PAGES_URL, SFIDE_RELEASES_URL, SFIDE_REPO_URL } from "@/constants/sfide"
 
@@ -108,7 +110,7 @@ const LandingPage = async () => {
             "@type": "SoftwareApplication",
             name: "S-FiDE",
             alternateName: "Sistema de Firma Digital Extendido",
-            description: "Suite de software libre para firmar y verificar documentos XML y PDF con token criptográfico, certificado PKCS#12 o almacén de Windows.",
+            description: "Suite de software libre para firmar y verificar documentos XML y PDF con token criptográfico, certificado PKCS#12 o almacén de Windows. Desarrollada íntegramente con inteligencia artificial.",
             applicationCategory: "SecurityApplication",
             operatingSystem: "Windows, Linux, macOS",
             ...(version ? { softwareVersion: version } : {}),
@@ -144,6 +146,7 @@ const LandingPage = async () => {
             <div className="max-w-[820px] space-y-4 text-xl font-[400]">
               <p>S-FiDE es una suite de programas de Grupo Sauken S.A. para firmar y verificar firmas digitales en documentos XML y PDF. También extrae e inspecciona certificados digitales desde tokens criptográficos, archivos PKCS#12 o el almacén de certificados de Windows.</p>
               <p>Cuenta con una interfaz gráfica simple para quien prefiere hacer clic. Cada función también se puede invocar por línea de comandos para integrarla en sistemas propios.</p>
+              <p>S-FiDE se desarrolló íntegramente con inteligencia artificial ({IA.herramienta}), y su código fuente está disponible para revisarlo. <Link href="/desarrollo-con-ia" className="underline underline-offset-4">Conocé cómo desarrollamos con IA</Link>.</p>
             </div>
 
             {version && novedades && (

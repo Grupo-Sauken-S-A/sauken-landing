@@ -15,11 +15,11 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const DESCRIPTION = "Consultora IT de Córdoba, Argentina, con más de 30 años: software a medida, certificados de origen digitales (S-COD), firma digital (S-FiDE) e infraestructura."
+const DESCRIPTION = "Consultora IT de Córdoba, Argentina. Desarrollamos software con inteligencia artificial: S-FiDE (100% con IA) y Ralvy (más del 90%), e infraestructura."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Sauken | Desarrollo de Software, Certificados de Origen",
+  title: "Sauken | Desarrollo de Software con IA en Córdoba",
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "es_AR",
     url: "/",
-    title: "Sauken | Desarrollo de Software, Certificados de Origen",
+    title: "Sauken | Desarrollo de Software con IA en Córdoba",
     description: DESCRIPTION,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Sauken" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sauken | Desarrollo de Software, Certificados de Origen",
+    title: "Sauken | Desarrollo de Software con IA en Córdoba",
     description: DESCRIPTION,
     images: ["/og-image.png"],
   },

@@ -16,7 +16,7 @@ export const SlideFide = ({ version }: { version?: string | null }) => {
                   <H3 className="pr-2 sm:pr-24">Sistema de Firma Digital Extendido.</H3>
                   <H4 className="mt-4 sm:mt-7">Firmá y verificá documentos XML y PDF con tu certificado digital.</H4>
                   <div className="space-y-3 sm:space-y-6 mt-6 sm:mt-12">
-                     <p>S-FiDE es una suite de software libre para firmar y verificar documentos con token, archivo de certificado o almacén de Windows. Incluye interfaz gráfica, comandos para integrar a tus sistemas y soporte especializado para certificados de origen ALADI/MERCOSUR.</p>
+                     <p>S-FiDE es una suite de software libre para firmar y verificar documentos con token, archivo de certificado o almacén de Windows. Incluye interfaz gráfica, comandos para integrar a tus sistemas y soporte especializado para certificados de origen ALADI/MERCOSUR. Se desarrolló íntegramente con inteligencia artificial.</p>
                   </div>
 
                   <div className="sm:flex items-center gap-x-6 mt-8">

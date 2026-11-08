@@ -17,6 +17,7 @@ import { ORGANIZATION, SITE_NAME, SITE_URL } from "@/constants/site";
 import { Stack } from "@/components/Stack";
 import { CLIENTES } from "@/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 // Revalida la versión de S-FiDE (GitHub) cada 3 horas
 export const revalidate = 10800;
@@ -57,6 +58,7 @@ export default async function Home() {
               >
                 <p>Desarrollamos productos de software con tecnologías de vanguardia que se ajusten a tus requerimientos y te permitan impulsar tus proyectos.</p>
                 <p>Si sientes que tu sistema actual quedó obsoleto, nosotros nos ocupamos de modernizarlo.</p>
+                <p>Desarrollamos con inteligencia artificial: S-FiDE se hizo íntegramente con IA y Ralvy más del 90%. <Link href="/desarrollo-con-ia" className="underline underline-offset-4">Ver casos</Link>.</p>
               </ServicioCard>
 
               <ServicioCard title="Arquitectura de Microservicios"
@@ -176,7 +178,9 @@ export default async function Home() {
         <div className="space-y-4 lg:space-y-8 text-lead text-c2 max-w-4xl">
           <p>Con más de 30 años de experiencia, somos una consultora IT especializada en el desarrollo de aplicaciones comerciales y servicios informáticos. </p>
 
-          <p>Desde Argentina, extendemos nuestro alcance hacia la región y el resto del mundo.</p>
+          <p>Hoy desarrollamos nuestros productos con inteligencia artificial: S-FiDE, hecho 100% con IA, y Ralvy, con más del 90%. <Link href="/desarrollo-con-ia" className="underline underline-offset-4">Conocé cómo trabajamos</Link>.</p>
+
+          <p>Desde Córdoba, Argentina, extendemos nuestro alcance hacia la región y el resto del mundo.</p>
         </div>
       </SectionHeading>
 

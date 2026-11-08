@@ -9,8 +9,8 @@ import {
    INFRA_CLIENTE, INFRA_FAQ, INFRA_IA, INFRA_PILARES, INFRA_SERVICIOS, INFRA_TRABAJO, INFRA_VULN,
 } from "@/constants/infraestructura"
 
-const TITLE = "Infraestructura gestionada: seguridad, respaldo y monitoreo"
-const DESCRIPTION = "Operamos, vigilamos y documentamos la plataforma donde corren tus aplicaciones: disponibilidad, seguridad, copias de seguridad y monitoreo permanente."
+const TITLE = "Infraestructura gestionada con IA, en Córdoba"
+const DESCRIPTION = "Operamos tu infraestructura desde Córdoba, Argentina, con inteligencia artificial y supervisión humana: seguridad, copias de seguridad y monitoreo permanente."
 
 export const metadata: Metadata = {
    title: TITLE,
@@ -52,7 +52,7 @@ const InfraestructuraPage = () => {
                <InnerContainer symetric={true}>
                   <p className="text-sm uppercase tracking-wide opacity-80 mb-6">Infraestructura</p>
                   <H1 className="text-white max-w-4xl">Infraestructura que se cuida sola… y con personas atentas detrás.</H1>
-                  <p className="text-lead mt-8 max-w-3xl">Operamos, vigilamos y documentamos la plataforma donde corren las aplicaciones de nuestros clientes.</p>
+                  <p className="text-lead mt-8 max-w-3xl">Operamos, vigilamos y documentamos la plataforma donde corren las aplicaciones de nuestros clientes, con asistencia de inteligencia artificial y supervisión de personas.</p>
                   <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
                      <div className="border border-white/30 p-5">
                         <h2 className="text-xl font-medium mb-1">Vigilada de forma permanente</h2>
@@ -111,7 +111,7 @@ const InfraestructuraPage = () => {
          </section>
 
          {/* IA */}
-         <section className="bg-c1 text-white py-16 lg:py-24">
+         <section id="ia" className="bg-c1 text-white py-16 lg:py-24 scroll-mt-8">
             <div className="container">
                <InnerContainer symetric={true}>
                   <p className="text-sm uppercase tracking-wide opacity-80 mb-4">Inteligencia artificial</p>

@@ -7,7 +7,7 @@ import { INFRA_PILARES } from "@/constants/infraestructura"
 export const InfraestructuraResumen = () => (
    <div>
       <p className="text-lead text-c2 max-w-4xl">
-         Operamos, vigilamos y documentamos la plataforma donde corren las aplicaciones de nuestros clientes: infraestructura que se cuida sola… y con personas atentas detrás.
+         Operamos, vigilamos y documentamos la plataforma donde corren las aplicaciones de nuestros clientes: infraestructura que se cuida sola… y con personas atentas detrás. Trabajamos con asistencia de inteligencia artificial y supervisión humana en cada acción sobre producción.
       </p>
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
          {INFRA_PILARES.map((p) => (

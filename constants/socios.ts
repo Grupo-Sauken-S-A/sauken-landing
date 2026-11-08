@@ -15,7 +15,7 @@ export const SOCIOS: Socio[] = [
    {
       name: "Ralvy",
       tipo: "Producto",
-      description: "Plataforma de ticketing para eventos: entradas, productos, acreditaciones y control de accesos con QR. La desarrollamos en conjunto y operamos su infraestructura. Se complementa con S-EMS.",
+      description: "Plataforma de ticketing para eventos: entradas, productos, acreditaciones y control de accesos con QR. La desarrollamos en conjunto, con más del 90% desarrollado con inteligencia artificial, y operamos su infraestructura. Se complementa con S-EMS.",
       href: "https://ralvy.io/",
       cta: "Conocer Ralvy",
       logo: "/images/socios/ralvy.svg",

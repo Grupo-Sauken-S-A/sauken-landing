@@ -93,6 +93,7 @@ export const INFRA_SERVICIOS = [
 ]
 
 export const INFRA_FAQ = [
+   { q: "¿Usan inteligencia artificial en su infraestructura?", a: "Sí, como asistencia: ayuda a revisar el estado de cada servidor, interpretar cambios inesperados y resolver incidentes con rapidez. Cada acción sobre producción es responsabilidad de una persona y queda registrada." },
    { q: "¿Qué pasa si se corta Internet?", a: "Contamos con conexiones redundantes y un esquema de respaldo: si una falla, el tráfico pasa a la otra y el monitoreo nos avisa en el momento." },
    { q: "¿Y si se corta la luz?", a: "Los equipos cuentan con respaldo de energía que da tiempo para actuar, y tenemos un procedimiento definido para cada tipo de corte." },
    { q: "¿Qué hacen cuando aparece una vulnerabilidad?", a: "Nos enteramos por nuestra vigilancia permanente, evaluamos si nos afecta y qué tan expuesto está el servicio, y actuamos: bajamos el servicio vulnerable o aplicamos el parche de seguridad, según corresponda. Después verificamos y lo dejamos registrado." },
